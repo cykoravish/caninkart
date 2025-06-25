@@ -1,0 +1,88 @@
+@import "tailwindcss";
+
+
+.swiper-pagination-bullets {
+  bottom: 0 !important;
+}
+.swiper-pagination-bullet {
+  background: #ff7e1b; /* orange */
+  opacity: 1;
+}
+.swiper-pagination-bullet-active {
+  background: #d64500; /* darker orange */
+}
+
+/* In your styles.css or component.css */
+.fredoka-heading {
+  font-family: 'Fredoka One', cursive;
+  color: #333;
+}
+
+@keyframes fade-in {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slide-down {
+  from { height: 0; opacity: 0; }
+  to { height: auto; opacity: 1; }
+}
+@keyframes slideRight {
+  from {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.animate-fade-in {
+  animation: fade-in 0.5s ease-out;
+}
+
+.animate-slide-right {
+  animation: slideRight 0.5s ease-out forwards;
+}
+
+.swiper-container {
+  position: relative;
+  overflow: visible; /* Allow navigation buttons to be visible */
+}
+
+.swiper-button-prev,
+.swiper-button-next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+  cursor: pointer;
+}
+
+
+/* index.css for footer  */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 4px;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background-color: #f97316; /* Tailwind's orange-500 */
+  border-radius: 8px;
+}
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: #f3f4f6; /* Tailwind's gray-100 */
+}
+
+/* for product details*/
+
+.thumbnail-scroll::-webkit-scrollbar {
+  width: 6px;
+}
+.thumbnail-scroll::-webkit-scrollbar-thumb {
+  background-color: #f97316; /* orange-500 */
+  border-radius: 6px;
+}
+.thumbnail-scroll::-webkit-scrollbar-track {
+  background: #f3f4f6; /* gray-100 */
+}
+
