@@ -13,17 +13,24 @@ import Placeholder from "@tiptap/extension-placeholder";
 import CustomMenuBar from "../components/Menu/CustomMenuBar";
 import { Link } from "react-router-dom";
 
+
+
 const BlogModalPage = () => {
+   const getTodayDate = () => {
+  return new Date().toISOString().split('T')[0];
+  };
   const [showModal, setShowModal] = useState(false);
   const [formData, setFormData] = useState({
     title: "",
-    date: "",
+    date: getTodayDate(),
     author: "",
     tags: "",
     content: "",
   });
   const [image, setImage] = useState(null);
   const [blogs, setBlogs] = useState([]);
+ 
+  
   const [imagePreview, setImagePreview] = useState(null);
 
   const editor = useEditor({
@@ -91,6 +98,10 @@ const BlogModalPage = () => {
     }
   };
 
+ 
+
+  // Fetch blogs from the backend
+
   const fetchBlogs = async () => {
     try {
       const res = await axios.get(`${import.meta.env.VITE_BACKEND}/api/blogs`);
@@ -103,6 +114,16 @@ const BlogModalPage = () => {
   useEffect(() => {
     fetchBlogs();
   }, []);
+
+  useEffect(() => {
+  setFormData((prev) => ({
+    ...prev,
+    date: getTodayDate(),
+  }));
+}, []);
+
+
+  
 
   return (
     <div className="bg-[#D7D9DD] min-h-screen">
@@ -142,7 +163,9 @@ const BlogModalPage = () => {
                     type="date"
                     name="date"
                     value={formData.date}
-                    onChange={handleChange}
+                    onChange={(e) =>
+                      setFormData({ ...formData, date: e.target.value })
+                    }
                     className="w-1/2 p-2 border rounded"
                     required
                   />
@@ -215,9 +238,10 @@ const BlogModalPage = () => {
                   <span className="inline-block border border-black bg-gray-50 px-4 py-1 rounded-full text-sm absolute top-2 left-2 font-medium">
                     {blog.tags[0] || "Blog"}
                   </span>
+                  
                   {blog.image && (
                     <img
-                      src={`${import.meta.env.VITE_BACKEND}/${blog.image}`}
+                      src={`${import.meta.env.VITE_BACKEND}/${blog.image.replace(/\\/g, '/')}`}
                       alt={blog.title}
                       className="w-full h-64 object-cover"
                     />
