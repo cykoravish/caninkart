@@ -6,6 +6,7 @@ import dog from "../assets/dogb1.png";
 
 const Blog = () => {
   const [blogs, setBlogs] = useState([]);
+  console.log("Blogs:", blogs);
 
   useEffect(() => {
     const fetchBlogs = async () => {
