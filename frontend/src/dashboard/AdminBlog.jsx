@@ -380,7 +380,9 @@ const BlogModalPage = () => {
   const handleDelete = async (id) => {
     if (!window.confirm("Are you sure you want to delete this blog?")) return;
     try {
-      await axios.delete(`${import.meta.env.VITE_BACKEND}/api/blogs/blogs/${id}`);
+      await axios.delete(
+        `${import.meta.env.VITE_BACKEND}/api/blogs/blogs/${id}`
+      );
       alert("Blog deleted successfully");
       fetchBlogs();
     } catch (error) {
@@ -389,22 +391,29 @@ const BlogModalPage = () => {
     }
   };
 
-  const handleEdit = (blog) => {
-    setFormData({
-      title: blog.title,
-      date: blog.date,
-      author: blog.author,
-      tags: blog.tags.join(", "),
-      content: blog.content,
-    });
-    setImagePreview(
-      `${import.meta.env.VITE_BACKEND}/${blog.image.replace(/\\/g, "/")}`
-    );
-    setEditingBlogId(blog._id);
-    setIsEditing(true);
-    setShowModal(true);
-    if (editor) editor.commands.setContent(blog.content || "");
-  };
+ const handleEdit = (blog) => {
+  setFormData({
+    title: blog.title,
+    date: blog.date,
+    author: blog.author,
+    tags: blog.tags.join(", "),
+    content: blog.content,
+  });
+
+  // Safe image preview setup
+  setImagePreview(
+    blog.image
+      ? `${import.meta.env.VITE_BACKEND}/${blog.image.replace(/\\/g, "/")}`
+      : null
+  );
+
+  setEditingBlogId(blog._id);
+  setIsEditing(true);
+  setShowModal(true);
+
+  if (editor) editor.commands.setContent(blog.content || "");
+};
+
 
   useEffect(() => {
     fetchBlogs();
@@ -523,65 +532,65 @@ const BlogModalPage = () => {
           <p className="text-center text-gray-500">No blogs available</p>
         ) : (
           <>
-           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-  {blogs.map((blog) => (
-    <div
-      key={blog._id}
-      className="bg-[#f5f4ef] rounded-xl shadow-lg overflow-hidden border relative border-gray-200"
-    >
-      {/* Blog Content Card */}
-      <Link
-        to={`/dashboard/blogdetail/${blog._id}`}
-        state={blog}
-        className="block hover:shadow-xl transition-all"
-      >
-        <span className="inline-block border border-black bg-gray-50 px-4 py-1 rounded-full text-sm absolute top-2 left-2 font-medium">
-          {blog.tags[0] || "Blog"}
-        </span>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {blogs.map((blog) => (
+                <div
+                  key={blog._id}
+                  className="bg-[#f5f4ef] rounded-xl shadow-lg overflow-hidden border relative border-gray-200"
+                >
+                  {/* Blog Content Card */}
+                  <Link
+                    to={`/dashboard/blogdetail/${blog._id}`}
+                    state={blog}
+                    className="block hover:shadow-xl transition-all"
+                  >
+                    <span className="inline-block border border-black bg-gray-50 px-4 py-1 rounded-full text-sm absolute top-2 left-2 font-medium">
+                      {blog.tags[0] || "Blog"}
+                    </span>
 
-        {blog.image && (
-          <img
-            src={`${
-              import.meta.env.VITE_BACKEND
-            }/${blog.image.replace(/\\/g, "/")}`}
-            alt={blog.title}
-            className="w-full h-64 object-cover"
-          />
-        )}
+                    {blog.image && (
+                      <img
+                        src={`${
+                          import.meta.env.VITE_BACKEND
+                        }/${blog.image.replace(/\\/g, "/")}`}
+                        alt={blog.title}
+                        className="w-full h-64 object-cover"
+                      />
+                    )}
 
-        <div className="px-6 pt-2">
-          <p className="text-sm text-gray-600 mb-1">
-            {new Date(blog.date).toLocaleDateString()} • By {blog.author}
-          </p>
-          <h3 className="text-xl font-semibold text-gray-900 mb-2">
-            {blog.title.length > 25
-              ? blog.title.substring(0, 25) + "..."
-              : blog.title}
-          </h3>
-        </div>
-      </Link>
+                    <div className="px-6 pt-2">
+                      <p className="text-sm text-gray-600 mb-1">
+                        {new Date(blog.date).toLocaleDateString()} • By{" "}
+                        {blog.author}
+                      </p>
+                      <h3 className="text-xl font-semibold text-gray-900 mb-2">
+                        {blog.title.length > 25
+                          ? blog.title.substring(0, 25) + "..."
+                          : blog.title}
+                      </h3>
+                    </div>
+                  </Link>
 
-      {/* Buttons outside the Link */}
-      <div className="flex justify-end gap-2 px-6 pb-4 mt-2">
-        <button
-          onClick={() => handleEdit(blog)}
-          className="text-blue-600 hover:text-blue-800"
-          title="Edit Blog"
-        >
-          <FaEdit />
-        </button>
-        <button
-          onClick={() => handleDelete(blog._id)}
-          className="text-red-600 hover:text-red-800"
-          title="Delete Blog"
-        >
-          <FaTrash />
-        </button>
-      </div>
-    </div>
-  ))}
-</div>
-
+                  {/* Buttons outside the Link */}
+                  <div className="flex justify-end gap-2 px-6 pb-4 mt-2">
+                    <button
+                      onClick={() => handleEdit(blog)}
+                      className="text-blue-600 hover:text-blue-800"
+                      title="Edit Blog"
+                    >
+                      <FaEdit />
+                    </button>
+                    <button
+                      onClick={() => handleDelete(blog._id)}
+                      className="text-red-600 hover:text-red-800"
+                      title="Delete Blog"
+                    >
+                      <FaTrash />
+                    </button>
+                  </div>
+                </div>
+              ))}
+            </div>
           </>
         )}
       </div>
