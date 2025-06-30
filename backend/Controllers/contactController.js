@@ -30,3 +30,22 @@ exports.getAllMessages = async (req, res) => {
     res.status(500).json({ message: 'Failed to fetch messages', error: error.message });
   }
 };
+
+
+// Delete a contact message by ID
+exports.deleteMessage = async (req, res) => {
+  try {
+    const { id } = req.params;
+
+    const deletedMessage = await Contact.findByIdAndDelete(id);
+
+    if (!deletedMessage) {
+      return res.status(404).json({ message: 'Message not found' });
+    }
+
+    res.status(200).json({ message: 'Message deleted successfully' });
+  } catch (error) {
+    console.error('Error deleting message:', error);
+    res.status(500).json({ message: 'Failed to delete message', error: error.message });
+  }
+};

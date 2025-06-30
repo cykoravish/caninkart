@@ -30,3 +30,52 @@ exports.getAllBlogs = async (req, res) => {
     res.status(500).json({ message: 'Failed to fetch blogs', error: error.message });
   }
 };
+
+// Update Blog
+exports.updateBlog = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const { title, date, author, tags, content } = req.body;
+
+    const updatedBlog = await Blog.findByIdAndUpdate(
+      id,
+      {
+        title,
+        date,
+        author,
+        tags: tags?.split(',').map(tag => tag.trim()),
+        content,
+        ...(req.file && { image: req.file.path }),
+      },
+      { new: true } // Return updated document
+    );
+
+    if (!updatedBlog) {
+      return res.status(404).json({ message: 'Blog not found' });
+    }
+
+    res.status(200).json({ message: 'Blog updated successfully', blog: updatedBlog });
+  } catch (error) {
+    console.error('Error updating blog:', error);
+    res.status(500).json({ message: 'Failed to update blog', error: error.message });
+  }
+};
+
+// Delete Blog
+exports.deleteBlog = async (req, res) => {
+  try {
+    const { id } = req.params;
+
+    const deletedBlog = await Blog.findByIdAndDelete(id);
+
+    if (!deletedBlog) {
+      return res.status(404).json({ message: 'Blog not found' });
+    }
+
+    res.status(200).json({ message: 'Blog deleted successfully' });
+  } catch (error) {
+    console.error('Error deleting blog:', error);
+    res.status(500).json({ message: 'Failed to delete blog', error: error.message });
+  }
+};
+

@@ -1,5 +1,6 @@
-import React, { useEffect, useState } from 'react';
-import axios from 'axios';
+import React, { useEffect, useState } from "react";
+import axios from "axios";
+import { FaTrash } from "react-icons/fa";
 
 const AdminContact = () => {
   const [contactData, setContactData] = useState([]);
@@ -8,18 +9,35 @@ const AdminContact = () => {
   useEffect(() => {
     const fetchContactData = async () => {
       try {
-        const res = await axios.get(`${import.meta.env.VITE_BACKEND}/api/cnt/contact`);
+        const res = await axios.get(
+          `${import.meta.env.VITE_BACKEND}/api/cnt/contact`
+        );
         setContactData(res.data);
       } catch (error) {
-        console.error('Error fetching contact messages:', error);
+        console.error("Error fetching contact messages:", error);
       }
     };
 
     fetchContactData();
   }, []);
 
+  const handleDelete = async (id) => {
+    if (!window.confirm("Are you sure you want to delete this message?"))
+      return;
+
+    try {
+      await axios.delete(
+        `${import.meta.env.VITE_BACKEND}/api/cnt/delete/${id}`
+      );
+      setContactData((prev) => prev.filter((item) => item._id !== id));
+    } catch (error) {
+      console.error("Error deleting message:", error);
+      alert("Failed to delete message.");
+    }
+  };
+
   return (
-    <div className='bg-[#D7D9DD] min-h-screen'>
+    <div className="bg-[#D7D9DD] min-h-screen">
       {/* Contact Table */}
       <div className=" rounded-xl p-4 max-w-7xl mx-auto overflow-x-auto">
         <div className="flex justify-between items-center mb-4">
@@ -49,6 +67,12 @@ const AdminContact = () => {
                   >
                     {data.message}
                   </td>
+                  <td
+                    className="py-2 cursor-pointer text-red-600"
+                    onClick={() => handleDelete(data._id)}
+                  >
+                    <FaTrash />
+                  </td>
                 </tr>
               ))}
             </tbody>
@@ -66,8 +90,13 @@ const AdminContact = () => {
             >
               &times;
             </button>
-            <h2 className="text-lg font-semibold mb-4 text-gray-800"> Message</h2>
-            <p className="text-gray-700 whitespace-pre-wrap">{selectedMessage}</p>
+            <h2 className="text-lg font-semibold mb-4 text-gray-800">
+              {" "}
+              Message
+            </h2>
+            <p className="text-gray-700 whitespace-pre-wrap">
+              {selectedMessage}
+            </p>
           </div>
         </div>
       )}

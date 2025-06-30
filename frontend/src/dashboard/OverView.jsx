@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
-import { FiArrowUpRight } from "react-icons/fi";
+import { FiAperture, FiArrowUpRight } from "react-icons/fi";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import { FaTrash } from "react-icons/fa";
 
 const Dashboard = () => {
   const [contactData, setContactData] = useState([]);
@@ -55,7 +56,9 @@ const Dashboard = () => {
   useEffect(() => {
     const fetchContactData = async () => {
       try {
-        const res = await axios.get(`${import.meta.env.VITE_BACKEND}/api/cnt/contact`);
+        const res = await axios.get(
+          `${import.meta.env.VITE_BACKEND}/api/cnt/contact`
+        );
         setContactData(res.data);
       } catch (error) {
         console.error("Error fetching contact messages:", error);
@@ -68,7 +71,9 @@ const Dashboard = () => {
   useEffect(() => {
     const fetchBlogs = async () => {
       try {
-        const res = await axios.get(`${import.meta.env.VITE_BACKEND}/api/blogs`);
+        const res = await axios.get(
+          `${import.meta.env.VITE_BACKEND}/api/blogs`
+        );
         setBlogs(res.data);
       } catch (error) {
         console.error("Error fetching blogs:", error);
@@ -85,6 +90,21 @@ const Dashboard = () => {
     { label: "District", value: totalDistricts },
   ];
 
+  const handleDelete = async (id) => {
+    if (!window.confirm("Are you sure you want to delete this message?"))
+      return;
+
+    try {
+      await axios.delete(
+        `${import.meta.env.VITE_BACKEND}/api/cnt/delete/${id}`
+      );
+      setContactData((prev) => prev.filter((item) => item._id !== id));
+    } catch (error) {
+      console.error("Error deleting message:", error);
+      alert("Failed to delete message.");
+    }
+  };
+
   return (
     <div className="bg-[#D7D9DD] min-h-screen px-4 py-6">
       <div className="max-w-screen-xl mx-auto space-y-6">
@@ -98,7 +118,9 @@ const Dashboard = () => {
               className="bg-white rounded-xl px-4 sm:px-6 py-4 sm:py-6 flex justify-between items-center shadow-sm hover:shadow-md transition"
             >
               <div>
-                <p className="text-gray-500 text-sm sm:text-base">{item.label}</p>
+                <p className="text-gray-500 text-sm sm:text-base">
+                  {item.label}
+                </p>
                 <h3 className="text-3xl sm:text-4xl font-bold">{item.value}</h3>
               </div>
               <FiArrowUpRight className="text-gray-300 text-2xl sm:text-3xl" />
@@ -140,7 +162,13 @@ const Dashboard = () => {
                         className="py-2 pr-4 max-w-[150px] truncate text-blue-600 cursor-pointer"
                         onClick={() => setSelectedMessage(data.message)}
                       >
-                        {data.message}
+                        {data.message.slice(0, 15)}
+                      </td>
+                      <td
+                        className="py-2 cursor-pointer text-red-600"
+                        onClick={() => handleDelete(data._id)}
+                      >
+                        <FaTrash />
                       </td>
                     </tr>
                   ))}
@@ -159,8 +187,12 @@ const Dashboard = () => {
                 >
                   &times;
                 </button>
-                <h2 className="text-lg font-semibold mb-4 text-gray-800">Message</h2>
-                <p className="text-gray-700 whitespace-pre-wrap">{selectedMessage}</p>
+                <h2 className="text-lg font-semibold mb-4 text-gray-800">
+                  Message
+                </h2>
+                <p className="text-gray-700 whitespace-pre-wrap">
+                  {selectedMessage}
+                </p>
               </div>
             </div>
           )}
@@ -170,7 +202,9 @@ const Dashboard = () => {
             <div className="flex justify-between items-center mb-4">
               <h3 className="text-gray-600 font-medium">My Blog</h3>
               <Link to="/dashboard/blog">
-                <span className="text-blue-500 text-sm hover:underline">View Details</span>
+                <span className="text-blue-500 text-sm hover:underline">
+                  View Details
+                </span>
               </Link>
             </div>
             {blogs.length === 0 ? (
