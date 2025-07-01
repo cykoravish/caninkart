@@ -24,4 +24,29 @@ router.get('/:countryId', async (req, res) => {
   }
 });
 
+// ✅ Update a state
+router.put('/update/:id', async (req, res) => {
+  const { name } = req.body;
+  try {
+    const updatedState = await State.findByIdAndUpdate(
+      req.params.id,
+      { name },
+      { new: true }
+    );
+    res.json({ message: 'State updated successfully', updatedState });
+  } catch (error) {
+    res.status(500).json({ message: 'Error updating state', error });
+  }
+});
+
+// ✅ Delete a state
+router.delete('/delete/:id', async (req, res) => {
+  try {
+    await State.findByIdAndDelete(req.params.id);
+    res.json({ message: 'State deleted successfully' });
+  } catch (error) {
+    res.status(500).json({ message: 'Error deleting state', error });
+  }
+});
+
 module.exports = router;
