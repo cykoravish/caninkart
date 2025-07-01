@@ -554,7 +554,7 @@ const BlogModalPage = () => {
                           import.meta.env.VITE_BACKEND
                         }/${blog.image.replace(/\\/g, "/")}`}
                         alt={blog.title}
-                        className="w-full h-64 object-cover"
+                        className="w-full h-64 object-center object-cover"
                       />
                     )}
 
