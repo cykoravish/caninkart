@@ -28,7 +28,7 @@ const BlogDetailsAdmin = () => {
 
   return (
     <>
-      <div className="w-full mx-auto px-6 sm:px-10 py-8 bg-[#EDEBE0]  max-w-screen-2xl">
+      <div className="w-full mx-auto px-6 sm:px-10 py-8 bg-[#EDEBE0] h-screen  max-w-screen-2xl">
         <div className="flex items-center justify-between ">
           {/* Back Button */}
           <div

@@ -275,6 +275,8 @@ import Placeholder from "@tiptap/extension-placeholder";
 import CustomMenuBar from "../components/Menu/CustomMenuBar";
 import { Link } from "react-router-dom";
 import { FaTrash, FaEdit } from "react-icons/fa";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const BlogModalPage = () => {
   const getTodayDate = () => new Date().toISOString().split("T")[0];
@@ -354,17 +356,17 @@ const BlogModalPage = () => {
           `${import.meta.env.VITE_BACKEND}/api/blogs/blogs/${editingBlogId}`,
           data
         );
-        alert("Blog updated!");
+        toast.success("Blog updated!");
       } else {
         await axios.post(`${import.meta.env.VITE_BACKEND}/api/blogs`, data);
-        alert("Blog uploaded!");
+        toast.success("Blog uploaded!");
       }
       setShowModal(false);
       resetForm();
       fetchBlogs();
     } catch (err) {
       console.error("Upload failed", err);
-      alert("Failed to upload blog.");
+      toast.error("Failed to upload blog.");
     }
   };
 
@@ -383,21 +385,22 @@ const BlogModalPage = () => {
       await axios.delete(
         `${import.meta.env.VITE_BACKEND}/api/blogs/blogs/${id}`
       );
-      alert("Blog deleted successfully");
+      toast.success("Blog deleted successfully");
       fetchBlogs();
     } catch (error) {
       console.error("Error deleting blog:", error);
-      alert("Failed to delete blog.");
+      toast.error("Failed to delete blog.");
     }
   };
 
  const handleEdit = (blog) => {
   setFormData({
     title: blog.title,
-    date: blog.date,
+    date: blog.date ? blog.date.split("T")[0] : getTodayDate(), 
     author: blog.author,
     tags: blog.tags.join(", "),
     content: blog.content,
+    
   });
 
   // Safe image preview setup
