@@ -63,8 +63,9 @@ const Blog = () => {
 
                   <div className="px-6 pb-6">
                     <p className="text-sm text-gray-600 mb-1">
-                      {new Date(blog.date).toLocaleDateString()} • By{" "}
-                      {blog.author}
+                      {new Date(blog.date).toLocaleDateString()}
+                       {/* • By{" "} */}
+                      {/* {blog.author} */}
                     </p>
                     <h3 className="text-xl font-semibold text-gray-900 mb-2">
                       {blog.title.length > 25
