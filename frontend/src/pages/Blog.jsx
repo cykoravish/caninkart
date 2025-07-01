@@ -58,7 +58,7 @@ const Blog = () => {
                       e.target.onerror = null; // prevent infinite loop if fallback also fails
                       e.target.src = dog;
                     }}
-                    className="w-full h-64 object-cover "
+                    className="w-full h-64 object-center "
                   />
 
                   <div className="px-6 pb-6">
