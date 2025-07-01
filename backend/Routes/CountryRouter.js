@@ -1,7 +1,6 @@
 const express = require('express');
 const router = express.Router();
 const Country = require('../Models/Country');
-
 const State = require('../Models/state');
 const District = require('../Models/District');
 
@@ -20,7 +19,7 @@ router.post('/add', async (req, res) => {
 // Get all countries
 router.get('/view', async (req, res) => {
   try {
-    const countries = await Country.find();
+    const countries = await Country.find().sort({createdAt : - 1});
     res.json(countries);
   } catch (error) {
     res.status(500).json({ message: 'Error fetching countries',error });
@@ -60,6 +59,36 @@ router.get('/hierarchy', async (req, res) => {
   }
 });
 
+// DELETE Country
+router.delete('/delete/:id', async (req, res) => {
+  try {
+    const deleted = await Country.findByIdAndDelete(req.params.id);
+    if (!deleted) {
+      return res.status(404).json({ message: 'Country not found' });
+    }
+    res.json({ message: 'Country deleted successfully', deleted });
+  } catch (error) {
+    res.status(500).json({ message: 'Error deleting country', error });
+  }
+});
+
+// UPDATE Country
+router.put('/update/:id', async (req, res) => {
+  const { name } = req.body;
+  try {
+    const updated = await Country.findByIdAndUpdate(
+      req.params.id,
+      { name },
+      { new: true, runValidators: true }
+    );
+    if (!updated) {
+      return res.status(404).json({ message: 'Country not found' });
+    }
+    res.json({ message: 'Country updated successfully', updated });
+  } catch (error) {
+    res.status(500).json({ message: 'Error updating country', error });
+  }
+});
 
 
 
