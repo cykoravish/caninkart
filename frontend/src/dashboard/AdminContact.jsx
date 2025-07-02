@@ -38,10 +38,7 @@ const AdminContact = () => {
     }
   };
 
-  const handlemaessage = (message) => {
-    setSelectedMessage(message);
-    navigate("/admin/contact");
-  }
+  
 
   return (
     <div className="bg-[#D7D9DD] min-h-screen">
@@ -55,8 +52,8 @@ const AdminContact = () => {
             <thead className="text-gray-500">
               <tr>
                 <th className="py-2 pr-4 text-lg">S no</th>
-                {/* <th className="py-2 pr-4 text-lg">Name</th>
-                <th className="py-2 pr-4 text-lg">Contact</th> */}
+                <th className="py-2 pr-4 text-lg">Name</th>
+                <th className="py-2 pr-4 text-lg">Contact</th>
                 <th className="py-2 pr-4 text-lg">Email</th>
                 <th className="py-2 pr-4 text-lg">Message</th>
               </tr>
@@ -70,7 +67,7 @@ const AdminContact = () => {
                   <td className="py-2 pr-4">{data.email}</td>
                   <td
                     className="py-2 pr-4 max-w-[150px] truncate text-blue-600 cursor-pointer"
-                    onClick={() => handlemaessage(data.message)}
+                    onClick={() => setSelectedMessage(data.message)}
                   >
                     {data.message}
                   </td>
@@ -88,7 +85,7 @@ const AdminContact = () => {
       </div>
 
       {/* Modal for Full Message */}
-{/* {selectedMessage && (
+{selectedMessage && (
   <div className="fixed inset-0 w-full h-90vh z-50  bg-opacity-30 overflow-y-auto">
     <div className="min-h-screen flex justify-center items-start py-10">
       <div className="bg-amber-300 rounded-lg p-6 w-full max-w-lg relative shadow-lg max-h-[90vh] overflow-hidden">
@@ -111,7 +108,7 @@ const AdminContact = () => {
       </div>
     </div>
   </div>
-)} */}
+)}
 
 
 

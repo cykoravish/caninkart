@@ -535,7 +535,7 @@ const BlogModalPage = () => {
           <p className="text-center text-gray-500">No blogs available</p>
         ) : (
           <>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
               {blogs.map((blog) => (
                 <div
                   key={blog._id}
@@ -561,21 +561,22 @@ const BlogModalPage = () => {
                       />
                     )}
 
-                    <div className="px-6 pt-2">
-                      <p className="text-sm text-gray-600 mb-1">
+                   
+                  </Link>
+                  <div className="flex justify-center items-center">
+                   <div className="px-2 pt-2 ">
+                      <p className="text-sm text-gray-600 mb-1">Posted on : {" "}
                         {new Date(blog.date).toLocaleDateString()} • By{" "}
                         {blog.author}
                       </p>
-                      <h3 className="text-xl font-semibold text-gray-900 mb-2">
-                        {blog.title.length > 25
+                      <h3 className="text-md font-semibold text-gray-900  line-clamp-2">
+                        {/* {blog.title.length > 25
                           ? blog.title.substring(0, 25) + "..."
-                          : blog.title}
+                          : blog.title} */}
+                          {blog.title}
                       </h3>
                     </div>
-                  </Link>
-
-                  {/* Buttons outside the Link */}
-                  <div className="flex justify-end gap-2 px-6 pb-4 mt-2">
+                   <div className="flex flex-col justify-end items-center my-auto  h-full gap-2 px-6   ">
                     <button
                       onClick={() => handleEdit(blog)}
                       className="text-blue-600 hover:text-blue-800"
@@ -591,6 +592,10 @@ const BlogModalPage = () => {
                       <FaTrash />
                     </button>
                   </div>
+                  </div>
+
+                  {/* Buttons outside the Link */}
+                 
                 </div>
               ))}
             </div>
