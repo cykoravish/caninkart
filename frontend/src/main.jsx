@@ -28,8 +28,8 @@ import Category from './pages/Category.jsx';
 import DistrictsPage from './pages/DistrictsPage.jsx';
 import CategoryProducts from './components/CategoryProducts.jsx';
 
-import ProtectedRoute from './utils/ProtactedRoute.jsx'
-
+import ProtectedRoute from './utils/ProtactedRoute.jsx';
+import ContactmsgForm from './dashboard/ContactmsgForm.jsx';
 const router = createBrowserRouter([
   {
     path: '/',
@@ -116,7 +116,14 @@ const router = createBrowserRouter([
             <AdminContact />
           </ProtectedRoute>
         ),
-      },
+      },{
+      path:'adm/contact', // results in /dashboard/adm/contact
+      element: (
+        <ProtectedRoute>
+          <ContactmsgForm />
+        </ProtectedRoute>
+      )
+    }
     ],
   }
   // {

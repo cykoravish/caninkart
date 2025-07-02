@@ -16,6 +16,7 @@ const DasNavbar = () => {
     { name: "Blog", path: "/dashboard/blog" },
     { name: "Country", path: "/dashboard/countrypage" },
     { name: "Contact", path: "/dashboard/contact" },
+    {name:'Contactmsg', path:'/admin/contact'}
   ];
 
   const handleLogout = async () => {
@@ -47,7 +48,7 @@ const DasNavbar = () => {
   }, []);
 
   return (
-    <header className="max-w-screen-2xl bg-white shadow-md sticky top-0 z-50">
+    <header className="max-w-screen-2xl bg-white h-20 shadow-md sticky top-0 z-50">
       <nav className="px-6 py-2 flex justify-between items-center max-w-[1400px] mx-auto">
         {/* Logo */}
         <Link to="/" className="w-28">

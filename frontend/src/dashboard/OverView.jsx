@@ -178,24 +178,26 @@ const Dashboard = () => {
           </div>
 
           {/* Modal for Full Message */}
-          {selectedMessage && (
-            <div className="fixed inset-0 bg-[#EFF1F3] bg-opacity-40 flex justify-center items-center z-50">
-              <div className="bg-white rounded-lg p-6 w-full max-w-lg relative shadow-lg">
-                <button
-                  onClick={() => setSelectedMessage(null)}
-                  className="absolute top-2 right-2 text-gray-600 hover:text-red-500 text-xl"
-                >
-                  &times;
-                </button>
-                <h2 className="text-lg font-semibold mb-4 text-gray-800">
-                  Message
-                </h2>
-                <p className="text-gray-700 whitespace-pre-wrap">
-                  {selectedMessage}
-                </p>
-              </div>
-            </div>
-          )}
+       {selectedMessage && (
+  <div className="fixed inset-0 backdrop-blur-md mt-20 bg-opacity-40 flex justify-center items-center z-50">
+    <div className="bg-white rounded-lg p-6 w-full max-w-lg relative shadow-lg max-h-[90vh] overflow-y-auto">
+      <button
+        onClick={() => setSelectedMessage(null)}
+        className="absolute top-2 right-2 text-gray-600 hover:text-red-500 text-xl"
+      >
+        &times;
+      </button>
+      <h2 className="text-lg font-semibold mb-4 text-gray-800">Message</h2>
+
+      {/* ✅ Scrollable content section */}
+      <div className="overflow-y-auto max-h-[60vh] pr-2">
+        <p className="text-gray-700 whitespace-pre-wrap">
+          {selectedMessage}
+        </p>
+      </div>
+    </div>
+  </div>
+)}
 
           {/* Blog Section */}
           <div className="bg-white rounded-xl p-4 shadow-sm overflow-x-auto w-full md:w-1/3 mt-6 md:mt-0">

@@ -33,7 +33,7 @@ const Blog = () => {
         {blogs.length === 0 ? (
           <p className="text-center text-gray-500">No blogs available</p>
         ) : (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 space-y-1">
             {blogs.map((blog) => (
               <Link to={`/blog/${blog._id}`} state={blog}>
                 <div
@@ -61,16 +61,17 @@ const Blog = () => {
                     className="w-full h-64 object-center "
                   />
 
-                  <div className="px-6 pb-6">
-                    <p className="text-sm text-gray-600 mb-1">
-                      {new Date(blog.date).toLocaleDateString()}
-                       {/* • By{" "} */}
+                  <div className="px-3 pb-3">
+                    <p className="text-sm font-semibold  text-gray-600 mb-1">
+                      Posted on : {" "}  {new Date(blog.date).toLocaleDateString()}
+                       
                       {/* {blog.author} */}
                     </p>
-                    <h3 className="text-xl font-semibold text-gray-900 mb-2">
-                      {blog.title.length > 25
+                    <h3 className="text-lg tracking-tight leading-snug font-bold text-gray-900  line-clamp-2">
+                      {/* {blog.title.length > 50
                         ? blog.title.substring(0, 25) + "..."
-                        : blog.title}
+                        : blog.title} */}
+                        {blog.title}
                     </h3>
                     {/* <div
                            className="text-gray-700 text-sm prose max-w-none"
