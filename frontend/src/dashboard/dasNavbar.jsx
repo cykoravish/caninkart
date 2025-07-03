@@ -16,7 +16,7 @@ const DasNavbar = () => {
     { name: "Blog", path: "/dashboard/blog" },
     { name: "Country", path: "/dashboard/countrypage" },
     { name: "Contact", path: "/dashboard/contact" },
-    {name:'Contactmsg', path:'/admin/contact'}
+    // {name:'Contactmsg', path:'/admin/contact'}
   ];
 
   const handleLogout = async () => {

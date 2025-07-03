@@ -86,7 +86,7 @@ const AdminContact = () => {
 
       {/* Modal for Full Message */}
 {selectedMessage && (
-  <div className="fixed inset-0 backdrop-blur-lg w-full h-90vh z-50  bg-opacity-30 overflow-y-auto">
+  <div className=" mt-20 fixed inset-0 backdrop-blur-lg w-full h-90vh z-50  bg-opacity-30 overflow-y-auto">
     <div className="min-h-screen flex justify-center items-start py-10">
       <div className="bg-white rounded-lg p-6 w-full max-w-lg relative shadow-lg max-h-[90vh] overflow-hidden">
         <button
