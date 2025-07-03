@@ -30,6 +30,7 @@ import CategoryProducts from './components/CategoryProducts.jsx';
 
 import ProtectedRoute from './utils/ProtactedRoute.jsx';
 import ContactmsgForm from './dashboard/ContactmsgForm.jsx';
+import DasNavbar from './dashboard/dasNavbar.jsx';
 const router = createBrowserRouter([
   {
     path: '/',
@@ -61,6 +62,7 @@ const router = createBrowserRouter([
         index: true,
         element: (
           <ProtectedRoute>
+            <DasNavbar/>
             <Dashboard />
           </ProtectedRoute>
         ),
@@ -73,6 +75,7 @@ const router = createBrowserRouter([
         path: 'countrypage',
         element: (
           <ProtectedRoute>
+            <DasNavbar/>
             <CountryPage />
           </ProtectedRoute>
         ),
@@ -81,6 +84,7 @@ const router = createBrowserRouter([
         path: 'blog',
         element: (
           <ProtectedRoute>
+            <DasNavbar/>
             <AdminBlog />
           </ProtectedRoute>
         ),
@@ -89,6 +93,7 @@ const router = createBrowserRouter([
         path: 'blogdetail/:id',
         element: (
           <ProtectedRoute>
+            <DasNavbar/>
             <BlogDetailsAdmin />
           </ProtectedRoute>
         ),
@@ -97,6 +102,7 @@ const router = createBrowserRouter([
         path: 'state/:countryName/:countryId',
         element: (
           <ProtectedRoute>
+            <DasNavbar/>
             <StatePage />
           </ProtectedRoute>
         ),
@@ -105,6 +111,7 @@ const router = createBrowserRouter([
         path: 'district/:countryId/:stateName/:stateId',
         element: (
           <ProtectedRoute>
+            <DasNavbar/>
             <DistrictPage />
           </ProtectedRoute>
         ),
@@ -113,6 +120,7 @@ const router = createBrowserRouter([
         path: 'contact',
         element: (
           <ProtectedRoute>
+            <DasNavbar/>
             <AdminContact />
           </ProtectedRoute>
         ),
@@ -120,6 +128,7 @@ const router = createBrowserRouter([
       path:'adm/contact', // results in /dashboard/adm/contact
       element: (
         <ProtectedRoute>
+          <DasNavbar/>
           <ContactmsgForm />
         </ProtectedRoute>
       )

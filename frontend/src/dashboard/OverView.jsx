@@ -3,14 +3,16 @@ import { FiAperture, FiArrowUpRight } from "react-icons/fi";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import { FaTrash } from "react-icons/fa";
-
+import { useNavigate } from "react-router-dom";
 const Dashboard = () => {
+  const navigate = useNavigate();
   const [contactData, setContactData] = useState([]);
   const [blogs, setBlogs] = useState([]);
   const [totalCountries, setTotalCountries] = useState(0);
   const [totalStates, setTotalStates] = useState(0);
   const [totalDistricts, setTotalDistricts] = useState(0);
   const [selectedMessage, setSelectedMessage] = useState(null);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -84,9 +86,9 @@ const Dashboard = () => {
   }, []);
 
   const data = [
-    { label: "Blog", value: blogs.length },
-    { label: "Country", value: totalCountries },
-    { label: "State", value: totalStates },
+    { label: "Blog", value: blogs.length, path: "/dashboard/blog" },
+    { label: "Country", value: totalCountries, path: "/dashboard/countrypage" },
+    { label: "State", value: totalStates  },
     { label: "District", value: totalDistricts },
   ];
 
@@ -115,6 +117,7 @@ const Dashboard = () => {
           {data.map((item, index) => (
             <div
               key={index}
+              // onClick={() => navigate(item.path)}
               className="bg-white rounded-xl px-4 sm:px-6 py-4 sm:py-6 flex justify-between items-center shadow-sm hover:shadow-md transition"
             >
               <div>
@@ -123,7 +126,7 @@ const Dashboard = () => {
                 </p>
                 <h3 className="text-3xl sm:text-4xl font-bold">{item.value}</h3>
               </div>
-              <FiArrowUpRight className="text-gray-300 text-2xl sm:text-3xl" />
+              <FiArrowUpRight className="text-gray-300  text-2xl sm:text-3xl" />
             </div>
           ))}
         </div>

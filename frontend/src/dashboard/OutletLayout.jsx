@@ -9,7 +9,7 @@ import "react-toastify/dist/ReactToastify.css";
 const DashboardLayout = () => {
   return (
     <>
-    <DasNavbar/>
+    {/* <DasNavbar/> */}
     <Outlet/>
     <ToastContainer position="top-right" autoClose={1000} />
 
