@@ -10,7 +10,7 @@ import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 import banner2 from "../assets/banner2.png";
-import hero2 from "../assets/caninkart_hero.png";
+import hero2 from "../assets/caninkart_hero.webp";
 import hero3 from "../assets/herobanner2.png";
 import pupy from "../assets/pupy.png";
 import img11 from "../assets/pngwing.png";
@@ -255,14 +255,11 @@ const HomePage = () => {
         <section className="py-5 px-4  flex flex-col md:flex-row items-center justify-center md:gap-15">
           <img src={pupy} alt="About Dog" className="h-70 " />
           <div>
-            <p className="text-lg max-w-md">
-              As a leading manufacturer and exporter of pet accessories,
-              Caninkart has gained a reputation for producing top-notch pet
-              products that cater to the needs of pets of all shapes and sizes.
-              Caninkart has been dedicated to creating innovative and practical
-              pet products that enhance the lives of pets and their owners.
+            <p className="text-lg max-w-xl">
+              Welcome to Caninkart, your trusted partner in premium-quality pet products designed to enrich the lives of pets and the people who love them.
+             <p>  Founded with a passion for pets and a commitment to excellence, Caninkart has grown into a leading manufacturer of innovative, durable, and stylish pet accessories. From collars, leashes, and harnesses to cozy beds, protective jackets, and everyday essentials, every product we create reflects our dedication to safety, comfort, and superior craftsmanship.</p>
             </p>
-            <Link to="/about">
+            <Link to="/about us">
               <button className="mt-4 bg-red-500 text-white text-xs px-4 py-2 rounded">
                 READ MORE
               </button>
