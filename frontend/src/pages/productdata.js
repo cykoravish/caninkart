@@ -184,7 +184,7 @@ const Productss = [
       Images9.jacket7,
      
     ],
-    name: "Jacket",
+    name: "Wind Proof Jacket",
     category: "JACKETS",
   },{
     id:10,
@@ -195,7 +195,7 @@ const Productss = [
       Images9.jacket10,
       Images9.jacket11]
     ,
-      name: "Jacket (Premium)",
+      name: " Premium Jacket",
     category: "JACKETS",
   },
   {
