@@ -10,7 +10,7 @@ import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 import banner2 from "../assets/banner2.png";
-import hero2 from "../assets/caninkarthero.png";
+import hero2 from "../assets/caninkart_hero.png";
 import hero3 from "../assets/herobanner2.png";
 import pupy from "../assets/pupy.png";
 import img11 from "../assets/pngwing.png";
@@ -20,8 +20,10 @@ import img2 from "../assets/Fur Lounger/24.png";
 import img3 from "../assets/Cave Hut - Grey/11.png";
 import img4 from "../assets/Jackets/4.png";
 import img5 from "../assets/dwt1.png";
+import { useRef } from "react";
 
 const HomePage = () => {
+  const swiperRef = useRef();
   const categories = [
     { category: "WALKING ESSENTIALS", image: img1 },
     { category: "BEDDING", image: img2 },
@@ -73,31 +75,70 @@ const HomePage = () => {
       : product.category === selectedCategory
   );
 
-  useEffect(() => {
-    // Handle mobile navigation buttons
-    const handleMobileNavigation = () => {
-      const swiperInstance = document.querySelector(
-        ".testimonials-swiper"
-      )?.swiper;
+  // useEffect(() => {
+  //   // Handle mobile navigation buttons
+  //   const handleMobileNavigation = () => {
+  //     const swiperInstance = document.querySelector(
+  //       ".testimonials-swiper"
+  //     )?.swiper;
 
-      const prevMobile = document.querySelector(".swiper-button-prev-mobile");
-      const nextMobile = document.querySelector(".swiper-button-next-mobile");
+  //     const prevMobile = document.querySelector(".swiper-button-prev-mobile");
+  //     const nextMobile = document.querySelector(".swiper-button-next-mobile");
 
-      if (prevMobile && nextMobile && swiperInstance) {
-        prevMobile.addEventListener("click", () => swiperInstance.slidePrev());
-        nextMobile.addEventListener("click", () => swiperInstance.slideNext());
-      }
-    };
+  //     if (prevMobile && nextMobile && swiperInstance) {
+  //       prevMobile.addEventListener("click", () => swiperInstance.slidePrev());
+  //       nextMobile.addEventListener("click", () => swiperInstance.slideNext());
+  //     }
+  //   };
 
-    // Delay to ensure swiper is initialized
-    setTimeout(handleMobileNavigation, 100);
+  //   // Delay to ensure swiper is initialized
+  //   setTimeout(handleMobileNavigation, 100);
+  // }, []);
+
+ useEffect(() => {
+    const swiper = swiperRef.current?.swiper;
+
+    if (swiper) {
+      swiper.params.navigation.prevEl = ".swiper-button-prev-custom";
+      swiper.params.navigation.nextEl = ".swiper-button-next-custom";
+      swiper.navigation.init();
+      swiper.navigation.update();
+
+      // Add listeners to pause autoplay temporarily
+      const pauseAndResumeAutoplay = () => {
+        swiper.autoplay.stop();
+        setTimeout(() => {
+          swiper.autoplay.start();
+        }, 3000); // pause autoplay for 3 seconds
+      };
+
+      const prevBtn = document.querySelector(".swiper-button-prev-custom");
+      const nextBtn = document.querySelector(".swiper-button-next-custom");
+
+      prevBtn?.addEventListener("click", pauseAndResumeAutoplay);
+      nextBtn?.addEventListener("click", pauseAndResumeAutoplay);
+
+      // Cleanup
+      return () => {
+        prevBtn?.removeEventListener("click", pauseAndResumeAutoplay);
+        nextBtn?.removeEventListener("click", pauseAndResumeAutoplay);
+      };
+    }
   }, []);
 
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
+  const slugify = (str) =>
+  str
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, '-') // replace non-alphanumeric with hyphen
+    .replace(/(^-|-$)/g, '');    // remove leading/trailing hyphens
+
+
+  // useEffect(() => {
+  //   window.scrollTo(0, 0);
+  // }, []);
 
   return (
+    <>
     <div className="font-sans text-gray-800 max-w-screen-2xl mx-auto">
       <div className=" md:relative overflow-hidden  text-center flex flex-col items-center mt-14 ">
         <img
@@ -152,72 +193,6 @@ const HomePage = () => {
         </div>
       </section>
 
-      {/* <section className="px-4 sm:px-6 md:px-10 lg:px-20 py-10 bg-[#E7EDE6] text-center">
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-4 gap-4">
-          {filteredProducts.map((product, idx) => {
-            return (
-              <div
-                onClick={() =>
-                  navigate(`/product/${product.id}`, { state: { product } })
-                }
-                key={product.id}
-                className="bg-white px-2 sm:px-4 md:px-4 lg:px-8 py-4 sm:py-6 md:py-4 shadow-md rounded cursor-pointer hover:ring-2 ring-orange-300 transition duration-200"
-              >
-                <div className="w-full h-40 flex items-center justify-center bg-white">
-                  <img
-                    src={product.image || img11}
-                    onError={(e) => {
-                      e.target.onerror = null;
-                      e.target.src = img11;
-                    }}
-                    alt={product.name}
-                    className="max-h-full object-contain"
-                  />
-                </div>
-                <p className="mt-2 text-lg font-medium">{product.name}</p>
-              </div>
-            );
-          })}
-        </div>
-      </section> */}
-
-      {/* Top Sellers */}
-      {/* <section className="px-4 sm:px-6 md:px-10 lg:px-20 py-10 bg-[#E7EDE6] text-center">
-        <h2 className="font-semibold mb-4 text-lg text-orange-500 flex justify-center items-center gap-2">
-          <FaPaw /> TOP SELLERS
-        </h2>
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-4 gap-4 ">
-          {Productss.slice(12, 20).map((product, idx) => {
-            return (
-              <motion.div
-                onClick={() =>
-                  navigate(`/product/${product.id}`, { state: { product } })
-                }
-                key={product.id}
-                className="bg-white px-2 sm:px-4 md:px-4 lg:px-8 py-4 sm:py-6 md:py-4 shadow-md rounded cursor-pointer hover:ring-2 ring-orange-300 transition duration-200"
-                initial={{ rotateY: 90, opacity: 0 }}
-                whileInView={{ rotateY: 0, opacity: 1 }}
-                transition={{ duration: 0.6, ease: "easeOut" }}
-                viewport={{ once: false }}
-                style={{ transformStyle: "preserve-3d" }}
-              >
-                <div className="w-full h-40 flex items-center justify-center bg-white">
-                  <img
-                    src={product.image || img11}
-                    onError={(e) => {
-                      e.target.onerror = null;
-                      e.target.src = img11;
-                    }}
-                    alt={product.name}
-                    className="max-h-full object-contain"
-                  />
-                </div>
-                <p className="mt-2 text-lg  font-medium">{product.name}</p>
-              </motion.div>
-            );
-          })}
-        </div>
-      </section> */}
 
       {/* Promo Banner */}
       <div className="w-full max-w-[1400px] mx-auto ">
@@ -245,7 +220,7 @@ const HomePage = () => {
             return (
               <div
                 onClick={() =>
-                  navigate(`/product/${product.id}`, { state: { product } })
+                  navigate(`/product/${slugify(product.name)}`, { state: { product } })
                 }
                 key={product.id}
                 className="bg-white  px-2 py-4 sm:py-6 md:py-4 shadow-md rounded cursor-pointer ring-orange-300 transition duration-200"
@@ -267,6 +242,10 @@ const HomePage = () => {
           })}
         </div>
       </section>
+
+       <div className="flex sm:hidden ">
+         <ContactForm />
+       </div>
 
       {/* About */}
       <div className="mt- bg-green-200">
@@ -321,13 +300,14 @@ const HomePage = () => {
             </button>
 
             <Swiper
-              modules={[Autoplay, Navigation]}
-              loop={true}
-              speed={3000} // 3 seconds for smooth slide transition
-              autoplay={{
-                delay: 0, // no delay between slides
-                disableOnInteraction: false, // keep autoplay even if user interacts
-              }}
+            ref={swiperRef}
+        modules={[Autoplay, Navigation]}
+        loop={true}
+        speed={2000}
+        autoplay={{
+          delay: 1000,
+          disableOnInteraction: false, // we'll handle manual pause
+        }}
               navigation={{
                 prevEl: ".swiper-button-prev-custom",
                 nextEl: ".swiper-button-next-custom",
@@ -420,6 +400,8 @@ const HomePage = () => {
       <ContactForm />
       {/* <h1 class="fredoka-heading">This is Fredoka One Font</h1> */}
     </div>
+  
+    </>
   );
 };
 

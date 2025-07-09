@@ -24,6 +24,7 @@ const DistrictsPage = () => {
             `${import.meta.env.VITE_BACKEND}/states/${stateId}`
           );
           setStateName(res.data.name);
+          console.log("State Name:", res.data.name);
           setDistricts(res.data.districts || []);
         } else {
           setDistricts(state.stateData.districts || []);

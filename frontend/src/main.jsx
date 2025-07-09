@@ -31,6 +31,12 @@ import CategoryProducts from './components/CategoryProducts.jsx';
 import ProtectedRoute from './utils/ProtactedRoute.jsx';
 import ContactmsgForm from './dashboard/ContactmsgForm.jsx';
 import DasNavbar from './dashboard/dasNavbar.jsx';
+import Productcategorypage from './pages/Productcategorypage.jsx';
+import Productcategorydetailpage from './pages/Productcategorydetailpage.jsx';
+import Socialicon from './components/Socialicon.jsx';
+import Cookie from './pages/Cookie.jsx';
+import Cookiepolicy from './pages/Cookiepage.jsx';
+import PrivatePolicy from './pages/PrivatePolicy.jsx';
 const router = createBrowserRouter([
   {
     path: '/',
@@ -38,18 +44,22 @@ const router = createBrowserRouter([
     children: [
       { index: true, element: <HomePage /> },
       { path: 'home', element: <HomePage /> },
-      { path: 'about', element: <About /> },
-      { path: 'dogbreed', element: <Breed /> },
+      { path: 'about us', element: <About /> },
+      { path: 'dog breed', element: <Breed /> },
       { path: 'product', element: <Product /> },
       { path:"/category-products", element:<CategoryProducts />},
       { path: 'product/:id', element: <ProductDetail /> },
       { path: 'blog', element: <Blog /> },
       { path: 'blog/:id', element: <BlogDetails /> },
-      { path: 'marketplace', element: <Marketplace /> },
+      { path: 'market place', element: <Marketplace /> },
       { path: "districts/:stateId" , element: <DistrictsPage /> },
       { path: 'marketplacedetails/:districtId', element: <MarketPlacedetails /> },
       { path: 'contact', element: <Contact /> },
-      { path : "exp" , element : <Category/>}
+      { path : "exp" , element : <Category/>},
+      { path: "marketplace/:name", element: <Productcategorypage/> },
+      { path: "marketplace/:name/:id", element: <Productcategorydetailpage/> },
+      { path: "cookie", element: <Cookiepolicy/> },
+      { path: "privatePolicy", element: <PrivatePolicy/> },
       // { path: 'CountryPage', element: <CountryPage /> }
     ],
   },
@@ -135,6 +145,7 @@ const router = createBrowserRouter([
     }
     ],
   }
+ 
   // {
   //   path: '/dashboard',
   //   element: <DashboardLayout />,

@@ -3,8 +3,17 @@ import { FaFacebookF, FaInstagram, FaYoutube } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
 import { Link } from "react-router-dom";
 import logo1 from "../assets/logo.png";
-
+import { useNavigate } from "react-router-dom";
 const Footer = () => {
+  const navigate = useNavigate()
+  const handlePolicyClick = (text) => {
+  if (text === "Terms & Conditions") {
+    // Navigate or scroll to Terms page
+    navigate("/terms"); // if using React Router
+  } else if (text === "Privacy Policy") {
+    navigate("/privatePolicy");
+  }
+};
   return (
     <footer className="px-4 sm:px-6 pt-10 text-sm bg-white max-w-screen-2xl mx-auto">
       <div className="grid gap-x-10 gap-y-5 md:grid-cols-2 lg:grid-cols-3 border-b px-10 py-5 max-w-[1500px] mx-auto ">
@@ -25,14 +34,14 @@ const Footer = () => {
               Quick Links
             </h4>
             <ul className="space-y-1  overflow-auto h-22 custom-scrollbar">
-              {["Home", "About", "Product", "Dog Breed", "Market Place"].map(
+              {["Home", "About Us", "Product", "Dog Breed", "Market Place"].map(
                 (text, idx) => (
                   <li key={idx}>
                     <Link
                       to={`/${
                         text === "Home"
                           ? ""
-                          : text.toLowerCase().replace(/\s+/g, "")
+                          : text.toLowerCase()
                       }`}
                       className="hover:text-orange-500 text-base"
                     >
@@ -48,8 +57,8 @@ const Footer = () => {
           <div>
             <h4 className="font-semibold mb-2 text-black text-lg">Legal</h4>
             <ul className="space-y-1 ">
-              {["Terms & Conditions", "Privacy Policy"].map((text, idx) => (
-                <li key={idx} className="hover:text-orange-500 text-base">
+              {[" ", "Privacy Policy"].map((text, idx) => (
+                <li key={idx} className="hover:text-orange-500 text-base"  onClick={() => handlePolicyClick(text)}>
                   {text}
                 </li>
               ))}

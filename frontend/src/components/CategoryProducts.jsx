@@ -74,7 +74,12 @@ const CategoryProducts = () => {
 
   const [selectedCategory, setSelectedCategory] = useState(initialCategory);
   const [filteredProducts, setFilteredProducts] = useState([]);
-
+    const [showAll, setShowAll] = useState(false);
+    const slugify = (str) =>
+  str
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, '-') // replace non-alphanumeric with hyphen
+    .replace(/(^-|-$)/g, '');    // remove leading/trailing hyphens
   const allCategories = [
     "WALKING ESSENTIALS",
     "BEDDING",
@@ -82,6 +87,8 @@ const CategoryProducts = () => {
     "JACKETS",
     "TOYS",
   ];
+
+    const visibleProducts = showAll ? filteredProducts : filteredProducts.slice(0, 3);
 
   useEffect(() => {
     const results = Productss.filter((product) =>
@@ -126,12 +133,13 @@ const CategoryProducts = () => {
 
       {/* Product Grid */}
       {filteredProducts.length > 0 ? (
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6 max-w-7xl mx-auto">
-          {filteredProducts.map((product) => (
+        <div>
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 max-w-7xl mx-auto justify-center">
+          {visibleProducts.map((product) => (
             <div
               key={product.id}
               onClick={() =>
-                navigate(`/product/${product.id}`, { state: { product } })
+                navigate(`/product/${slugify(product.name)}`, { state: { product } })
               }
               className="bg-white p-4 shadow-md rounded-md cursor-pointer hover:ring-2 ring-orange-300 transition duration-200"
             >
@@ -149,7 +157,17 @@ const CategoryProducts = () => {
               <p className="mt-2 text-base text-center font-medium">{product.name}</p>
             </div>
           ))}
+
         </div>
+        {/* {!showAll && filteredProducts.length > 3 && (
+        <button
+          onClick={() => setShowAll(true)}
+          className="mt-6 flex justify-center mx-auto px-6 py-2 bg-orange-500 text-white rounded hover:bg-orange-600 transition"
+        >
+          See More
+        </button>
+      )} */}
+      </div>
       ) : (
         <p className="text-center text-gray-500 mt-10">
           No products found in this category.

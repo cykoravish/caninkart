@@ -3,7 +3,8 @@ import { Outlet } from 'react-router-dom';
 
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
-
+import Socialicon from './components/Socialicon';
+import Cookie from './pages/Cookie';
 
 const App = () => {
   return (
@@ -12,6 +13,8 @@ const App = () => {
     <Navbar/>
     <Outlet/>
     <Footer/>
+     <Socialicon/>
+     <Cookie />
     </>
   );
 };

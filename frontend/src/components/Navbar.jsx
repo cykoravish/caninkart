@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import { NavLink, Link } from "react-router-dom";
 import { FiSearch, FiMenu, FiX } from "react-icons/fi";
 import { IoClose } from "react-icons/io5";
-import logo from "../assets/logo.png";
+import logo from "../assets/logo.webp";
 import Productss from "../pages/productdata";
 const Navbar = () => {
    const searchRef = useRef();
@@ -11,7 +11,7 @@ const Navbar = () => {
   const [searchQuery, setSearchQuery] = useState("");
   const [searchedProducts, setSearchedProducts] = useState([]);
 
-  const navLinks = ["home", "product", "about", "blog", "contact"];
+  const navLinks = ["home", "product", "about us", "blog", "contact"];
 
   useEffect(() => {
     const searchedProducts = Productss.filter((product, idx) =>
@@ -42,11 +42,16 @@ const Navbar = () => {
   
   return (
     <nav className="fixed top-0 w-full z-50 bg-white shadow-md">
-      <div className="max-w-[1500px] mx-auto px-6 py-4 flex items-center justify-between">
+      <div className="max-w-[1500px] mx-auto px-6  flex items-center justify-between">
         {/* Logo - Left */}
-        <NavLink to="/" className="flex items-center space-x-2">
-          <img src={logo} alt="Caninkart Logo" className="h-14 w-auto" />
-        </NavLink>
+       <NavLink to="/" className="flex items-center space-x-2 -ml-2 sm:ml-0">
+  <img
+    src={logo}
+    alt="Caninkart Logo"
+    className="h-23 w-auto object-contain"
+  />
+</NavLink>
+
 
         {/* Nav Links - Center */}
         <ul className="hidden md:flex space-x-6 font-medium text-gray-700 mx-auto">

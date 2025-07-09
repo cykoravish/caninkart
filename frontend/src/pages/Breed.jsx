@@ -70,9 +70,9 @@ const dogs = [
   },
   {
     number: "10",
-    breed: "Great Dance",
+    breed: "Great Dane",
     image: dog10,
-    description: `Dalmatians are easily recognizable by their spotted coat. They are energetic, outgoing, and great for active families. Historically used as carriage dogs, Dalmatians require regular exercise and love being around people.`,
+    description: `The Great Dane is one of the tallest and most majestic dog breeds, often called the “gentle giant.” Despite their size, they are affectionate, friendly, and great with  children, making them excellent family pets. They have a calm demeanor indoors but benefit from regular walks and light exercise to stay healthy.Great Danes are loyal and protective, often forming strong bonds with their owners. With their short coat and dignified appearance, they are as elegant as they are lovable.`,
   },
   {
     number: "11",
