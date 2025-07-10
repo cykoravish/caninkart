@@ -21,6 +21,7 @@ import img3 from "../assets/Cave Hut - Grey/11.png";
 import img4 from "../assets/Jackets/4.png";
 import img5 from "../assets/dwt1.png";
 import { useRef } from "react";
+import SmContactform from "./SmContactform";
 
 const HomePage = () => {
   const swiperRef = useRef();
@@ -244,7 +245,7 @@ const HomePage = () => {
       </section>
 
        <div className="flex sm:hidden ">
-         <ContactForm />
+         <SmContactform/>
        </div>
 
       {/* About */}
@@ -394,7 +395,10 @@ const HomePage = () => {
       </section>
 
       {/* Contact Form */}
-      <ContactForm />
+      <div>
+        <ContactForm   />
+        </div>
+
       {/* <h1 class="fredoka-heading">This is Fredoka One Font</h1> */}
     </div>
   

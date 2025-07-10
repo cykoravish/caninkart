@@ -176,7 +176,7 @@ const LocationHierarchy = () => {
 
 
       {/* product category  */}
-      <div className="flex flex-wrap justify-center items-center mt-10 mb-10">
+      <div className="grid grid-cols-1 md:grid-cols-2  lg:grid-cols-3 justify-center mx-16 items-center mt-10 mb-10">
       {category.map((item) =>(
          <ul    
          key={item.id}
@@ -184,7 +184,7 @@ const LocationHierarchy = () => {
                                navigate(`/marketplace/${item.name}`)
                                window.scrollTo(0, 0)
                             }} 
-          className="flex w-72 h-16 flex-row justify-center items-center 
+          className="flex h-16 flex-row justify-center items-center 
   bg-zinc-200 hover:bg-zinc-300 hover:text-zinc-800 
   cursor-pointer text-center 
   transition-all duration-300 ease-in-out 

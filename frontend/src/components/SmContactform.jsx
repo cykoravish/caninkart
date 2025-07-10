@@ -3,7 +3,7 @@ import dog from "../assets/ctf.png";
 import { FaPaw } from "react-icons/fa";
 import axios from "axios";
 
-const ContactForm = () => {
+const SmContactform = () => {
   const [isMdOrLarger, setIsMdOrLarger] = useState(false);
 
   const [formData, setFormData] = useState({
@@ -81,7 +81,7 @@ const ContactForm = () => {
   };
 
   return (
-    <section className="relative hidden sm:flex flex-col py-10 px-4 bg-[#FDFDFD] text-center max-w-screen-2xl mx-auto">
+    <section className="relative py-10 px-4 bg-[#FDFDFD] text-center max-w-screen-2xl mx-auto">
       <h2 className=" text-orange-500 mb-2 flex justify-center items-center gap-2 text-lg font-semibold"><FaPaw/> CONTACT</h2>
       <h3 className="text-lg font-bold mb-0 md:mb-6">Contact Us</h3>
 
@@ -154,4 +154,8 @@ const ContactForm = () => {
   );
 };
 
-export default ContactForm;
+export default SmContactform;
+
+
+
+

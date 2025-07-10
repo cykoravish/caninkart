@@ -42,7 +42,7 @@ function Productcategorypage() {
       productName:`Tuxedo `
     },{
       productId :12,
-      productName:`Bow Tue`
+      productName:`Bow Tie`
     },{
       productId :13,
       productName:`Bandana `
