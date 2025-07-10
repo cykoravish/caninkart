@@ -84,7 +84,7 @@ const LocationHierarchy = () => {
   };
 
   const handleStateClick = (state) => {
-    navigate(`/districts/${state._id}`, { state: { stateData: state } });
+    navigate(`/districts/${state.name}`, { state: { stateData: state } });
   };
 
   const category=[

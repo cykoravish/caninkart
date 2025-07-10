@@ -85,6 +85,20 @@ const DistrictsPage = () => {
               Districts in {stateName}
             </div>
           </section>
+      <div className="text-center cursor-pointer"  onClick={() =>
+                      navigate(`/marketplacedetails/${stateName}`, {
+                        state: { districtData: stateName },
+                      })
+                    }>
+  <div className="px-6 py-3 rounded-lg mt-2.5 bg-zinc-200 inline-block items-center my-auto text-2xl transition-transform duration-300 hover:scale-105 hover:shadow-lg">
+    <div className="flex items-center justify-center gap-2">
+      <span className="my-auto text-zinc-800">{stateName}</span>
+      <span><TfiArrowTopRight className="text-zinc-400" /></span>
+    </div>
+  </div>
+</div>
+
+
 
           {districts.length === 0 ? (
             <div className="bg-white rounded-lg shadow-md p-6 text-center">
@@ -99,7 +113,7 @@ const DistrictsPage = () => {
                 >
                   <button
                     onClick={() =>
-                      navigate(`/marketplacedetails/${district._id}`, {
+                      navigate(`/marketplacedetails/${district.name}`, {
                         state: { districtData: district },
                       })
                     }
