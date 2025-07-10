@@ -2,7 +2,7 @@ import { FiPhone, FiMail } from "react-icons/fi";
 import { FaFacebookF, FaInstagram, FaYoutube } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
 import { Link } from "react-router-dom";
-import logo1 from "../assets/logo.png";
+import logo from "../assets/logo.jpg";
 import { useNavigate } from "react-router-dom";
 const Footer = () => {
   const navigate = useNavigate()
@@ -12,6 +12,7 @@ const Footer = () => {
     navigate("/terms"); // if using React Router
   } else if (text === "Privacy Policy") {
     navigate("/privatePolicy");
+    window.scrollTo(0,0)
   }
 };
   return (
@@ -19,7 +20,7 @@ const Footer = () => {
       <div className="grid gap-x-10 gap-y-5 md:grid-cols-2 lg:grid-cols-3 border-b px-10 py-5 max-w-[1500px] mx-auto ">
         {/* Logo & Description */}
         <div className="flex flex-col items-center md:items-start text-center md:text-left ">
-          <img src={logo1} alt="Caninkart" className="w-24 h-auto mb-3" />
+          <img src={logo} alt="Caninkart" className="w-24 h-auto mb-3" />
           <p className=" leading-relaxed max-w-xs text-base">
             Caninkart is a highly reputable manufacturer and exporter of pet
             accessories.
