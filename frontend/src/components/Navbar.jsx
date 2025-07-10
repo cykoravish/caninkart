@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import { NavLink, Link } from "react-router-dom";
 import { FiSearch, FiMenu, FiX } from "react-icons/fi";
 import { IoClose } from "react-icons/io5";
-import logo from "../assets/logo.webp";
+import logo from "../assets/logo.jpg";
 import Productss from "../pages/productdata";
 const Navbar = () => {
    const searchRef = useRef();
@@ -41,14 +41,14 @@ const Navbar = () => {
 
   
   return (
-    <nav className="fixed top-0 w-full z-50 bg-white shadow-md">
+    <nav className="fixed  top-0 w-full z-50 bg-white shadow-md">
       <div className="max-w-[1500px] mx-auto px-6  flex items-center justify-between">
         {/* Logo - Left */}
-       <NavLink to="/" className="flex items-center space-x-2 -ml-2 sm:ml-0">
+       <NavLink to="/" className="h-20 w-30  flex items-center space-x-2 -ml-2 sm:ml-0">
   <img
     src={logo}
     alt="Caninkart Logo"
-    className="h-23 w-auto object-contain"
+    className="h-28 w-auto object-contain  justify-center items-center"
   />
 </NavLink>
 
