@@ -282,6 +282,7 @@ const BlogModalPage = () => {
   const getTodayDate = () => new Date().toISOString().split("T")[0];
 
   const [showModal, setShowModal] = useState(false);
+  
   const [formData, setFormData] = useState({
     title: "",
     date: getTodayDate(),
@@ -294,7 +295,7 @@ const BlogModalPage = () => {
   const [blogs, setBlogs] = useState([]);
   const [isEditing, setIsEditing] = useState(false);
   const [editingBlogId, setEditingBlogId] = useState(null);
-
+  const [loading, setLoading] = useState(false);
   const editor = useEditor({
     extensions: [
       StarterKit,
@@ -371,9 +372,12 @@ const BlogModalPage = () => {
   };
 
   const fetchBlogs = async () => {
+    setLoading(true);
     try {
+
       const res = await axios.get(`${import.meta.env.VITE_BACKEND}/api/blogs`);
       setBlogs(res.data);
+      setLoading(false);
     } catch (error) {
       console.error("Error fetching blogs:", error);
     }
@@ -531,71 +535,67 @@ const BlogModalPage = () => {
 
       <div className="max-w-7xl mx-auto px-4">
         <h2 className="text-3xl font-bold text-center mb-8">Blog Posts</h2>
-        {blogs.length === 0 ? (
-          <p className="text-center text-gray-500">No blogs available</p>
-        ) : (
-          <>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {blogs.map((blog) => (
-                <div
-                  key={blog._id}
-                  className="bg-[#f5f4ef] rounded-xl shadow-lg overflow-hidden border relative border-gray-200"
-                >
-                  {/* Blog Content Card */}
-                  <Link
-                    to={`/dashboard/blogdetail/${blog._id}`}
-                    state={blog}
-                    className="block hover:shadow-xl transition-all"
-                  >
-                    <span className="inline-block border border-black bg-gray-50 px-4 py-1 rounded-full text-sm absolute top-2 left-2 font-medium">
-                      {blog.tags[0] || "Blog"}
-                    </span>
+       {loading ? (
+  <div className="flex justify-center items-center h-64">
+    <div className="w-10 h-10 border-4 border-blue-500 border-t-transparent rounded-full animate-spin"></div>
+  </div>
+) : blogs.length === 0 ? (
+  <p className="text-center text-gray-500">No blogs available</p>
+) : (
+  <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
+    {blogs.map((blog) => (
+      <div
+        key={blog._id}
+        className="bg-[#f5f4ef] rounded-xl shadow-lg overflow-hidden border relative border-gray-200"
+      >
+        <Link
+          to={`/dashboard/blogdetail/${blog._id}`}
+          state={blog}
+          className="block hover:shadow-xl transition-all"
+        >
+          <span className="inline-block border border-black bg-gray-50 px-4 py-1 rounded-full text-sm absolute top-2 left-2 font-medium">
+            {blog.tags[0] || "Blog"}
+          </span>
+          {blog.image && (
+            <img
+              src={`${import.meta.env.VITE_BACKEND}/${blog.image.replace(/\\/g, "/")}`}
+              alt={blog.title}
+              className="w-full h-64 object-center"
+            />
+          )}
+        </Link>
 
-                    {blog.image && (
-                      <img
-                        src={`${
-                          import.meta.env.VITE_BACKEND
-                        }/${blog.image.replace(/\\/g, "/")}`}
-                        alt={blog.title}
-                        className="w-full h-64 object-cover"
-                      />
-                    )}
+        <div className="flex justify-center items-center">
+          <div className="px-2 pt-2">
+            <p className="text-sm text-gray-600 mb-1">
+              Posted on: {new Date(blog.date).toLocaleDateString()} • By {blog.author}
+            </p>
+            <h3 className="text-md font-semibold text-gray-900 line-clamp-2">
+              {blog.title}
+            </h3>
+          </div>
+          <div className="flex flex-col justify-end items-center my-auto h-full gap-2 px-6">
+            <button
+              onClick={() => handleEdit(blog)}
+              className="text-blue-600 hover:text-blue-800"
+              title="Edit Blog"
+            >
+              <FaEdit />
+            </button>
+            <button
+              onClick={() => handleDelete(blog._id)}
+              className="text-red-600 hover:text-red-800"
+              title="Delete Blog"
+            >
+              <FaTrash />
+            </button>
+          </div>
+        </div>
+      </div>
+    ))}
+  </div>
+)}
 
-                    <div className="px-6 pt-2">
-                      <p className="text-sm text-gray-600 mb-1">
-                        {new Date(blog.date).toLocaleDateString()} • By{" "}
-                        {blog.author}
-                      </p>
-                      <h3 className="text-xl font-semibold text-gray-900 mb-2">
-                        {blog.title.length > 25
-                          ? blog.title.substring(0, 25) + "..."
-                          : blog.title}
-                      </h3>
-                    </div>
-                  </Link>
-
-                  {/* Buttons outside the Link */}
-                  <div className="flex justify-end gap-2 px-6 pb-4 mt-2">
-                    <button
-                      onClick={() => handleEdit(blog)}
-                      className="text-blue-600 hover:text-blue-800"
-                      title="Edit Blog"
-                    >
-                      <FaEdit />
-                    </button>
-                    <button
-                      onClick={() => handleDelete(blog._id)}
-                      className="text-red-600 hover:text-red-800"
-                      title="Delete Blog"
-                    >
-                      <FaTrash />
-                    </button>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </>
-        )}
       </div>
       <ToastContainer/>
     </div>

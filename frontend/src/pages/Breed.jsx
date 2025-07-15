@@ -70,9 +70,9 @@ const dogs = [
   },
   {
     number: "10",
-    breed: "Great Dance",
+    breed: "Great Dane",
     image: dog10,
-    description: `Dalmatians are easily recognizable by their spotted coat. They are energetic, outgoing, and great for active families. Historically used as carriage dogs, Dalmatians require regular exercise and love being around people.`,
+    description: `The Great Dane is one of the tallest and most majestic dog breeds, often called the “gentle giant.” Despite their size, they are affectionate, friendly, and great with  children, making them excellent family pets. They have a calm demeanor indoors but benefit from regular walks and light exercise to stay healthy.Great Danes are loyal and protective, often forming strong bonds with their owners. With their short coat and dignified appearance, they are as elegant as they are lovable.`,
   },
   {
     number: "11",
@@ -110,7 +110,7 @@ function App() {
   window.scrollTo(0, 0);
 }, []);
   return (
-    <div className="bg-[#f9f5f3] text-gray-800 font-sans px-4 py-10 mt-16 max-w-screen-2xl mx-auto">
+    <div className="bg-[#f9f5f3] text-gray-800  px-4 py-10 mt-16 max-w-screen-2xl mx-auto">
       <h2 className="text-center text-orange-500 flex justify-center items-center gap-2 text-lg font-semibold mb-10">
         <FaPaw/>  KNOW ABOUT DOG BREEDS
       </h2>

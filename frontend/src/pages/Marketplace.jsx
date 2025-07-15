@@ -84,8 +84,31 @@ const LocationHierarchy = () => {
   };
 
   const handleStateClick = (state) => {
-    navigate(`/districts/${state._id}`, { state: { stateData: state } });
+    navigate(`/districts/${state.name}`, { state: { stateData: state } });
   };
+
+  const category=[
+    {
+        id:1,
+      name: "Manufacturers ",
+    },{
+      id:2,
+      name:"Suppliers "
+    },{
+      id:3,
+      name:"Private Labelling"
+    },{
+      id:4,
+      name:"Dealers "
+    },{
+      id:5,
+      name:"Exporters "
+    },{
+      id:6,
+      name:"Distributors "
+    }
+  ]
+  
 
   if (loading) {
     return (
@@ -149,6 +172,47 @@ const LocationHierarchy = () => {
       {/* Banner */}
       <div className="max-w-screen-2xl mx-auto">
         <img src={img12} alt="India banner" className="w-full h-auto mx-auto" />
+      </div>
+
+
+      {/* product category  */}
+      <div className="grid grid-cols-1 md:grid-cols-2  lg:grid-cols-3 justify-center mx-16 items-center mt-10 mb-10">
+      {category.map((item) =>(
+         <ul    
+         key={item.id}
+          onClick={() =>{
+                               navigate(`/marketplace/${item.name}`)
+                               window.scrollTo(0, 0)
+                            }} 
+          className="flex h-16 flex-row justify-center items-center 
+  bg-zinc-200 hover:bg-zinc-300 hover:text-zinc-800 
+  cursor-pointer text-center 
+  transition-all duration-300 ease-in-out 
+  rounded-sm shadow hover:shadow-xl 
+  transform hover:scale-105 mx-1.5 my-1.5">
+                    
+                          <li
+                           
+                            className="w-full "
+                           
+                          >
+                           
+                              <div className="  w-full items-center text-center px-1 py-0.5 space-y-3 ">
+                                
+                                <p className="px-1 w-full flex justify-center items-center font-medium text-lg">
+                                  {item.name}
+                                </p>
+                              </div>
+                              {/* <p>
+                                <TfiArrowTopRight className="text-[#B9E9F9] w-8 h-8" />
+                              </p> */}
+                           
+                          </li>
+                      
+                    </ul>
+      )
+        
+      )}
       </div>
 
       <div className="bg-[#FFFDF4] max-w-screen-2xl mx-auto py-8">

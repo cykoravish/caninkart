@@ -6,6 +6,12 @@ import Productss from "./productdata";
 
 const Product = () => {
   const navigate = useNavigate();
+  const slugify = (str) =>
+  str
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, '-') // replace non-alphanumeric with hyphen
+    .replace(/(^-|-$)/g, '');    // remove leading/trailing hyphens
+
   
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -20,9 +26,7 @@ const Product = () => {
           {Productss.map((product) => (
             <Link
               key={product.id}
-              to={{
-                pathname: `/product/${product.id}`,
-              }}
+             to={`/product/${slugify(product.name)}`}
               state={{ product }}
               className=" rounded shadow p-2 text-center cursor-pointer hover:ring-2 ring-orange-300 transition duration-200 block bg-white"
             >

@@ -3,14 +3,16 @@ import { FiAperture, FiArrowUpRight } from "react-icons/fi";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import { FaTrash } from "react-icons/fa";
-
+import { useNavigate } from "react-router-dom";
 const Dashboard = () => {
+  const navigate = useNavigate();
   const [contactData, setContactData] = useState([]);
   const [blogs, setBlogs] = useState([]);
   const [totalCountries, setTotalCountries] = useState(0);
   const [totalStates, setTotalStates] = useState(0);
   const [totalDistricts, setTotalDistricts] = useState(0);
   const [selectedMessage, setSelectedMessage] = useState(null);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -84,9 +86,9 @@ const Dashboard = () => {
   }, []);
 
   const data = [
-    { label: "Blog", value: blogs.length },
-    { label: "Country", value: totalCountries },
-    { label: "State", value: totalStates },
+    { label: "Blog", value: blogs.length, path: "/dashboard/blog" },
+    { label: "Country", value: totalCountries, path: "/dashboard/countrypage" },
+    { label: "State", value: totalStates  },
     { label: "District", value: totalDistricts },
   ];
 
@@ -115,6 +117,7 @@ const Dashboard = () => {
           {data.map((item, index) => (
             <div
               key={index}
+              // onClick={() => navigate(item.path)}
               className="bg-white rounded-xl px-4 sm:px-6 py-4 sm:py-6 flex justify-between items-center shadow-sm hover:shadow-md transition"
             >
               <div>
@@ -123,7 +126,7 @@ const Dashboard = () => {
                 </p>
                 <h3 className="text-3xl sm:text-4xl font-bold">{item.value}</h3>
               </div>
-              <FiArrowUpRight className="text-gray-300 text-2xl sm:text-3xl" />
+              <FiArrowUpRight className="text-gray-300  text-2xl sm:text-3xl" />
             </div>
           ))}
         </div>
@@ -178,24 +181,26 @@ const Dashboard = () => {
           </div>
 
           {/* Modal for Full Message */}
-          {selectedMessage && (
-            <div className="fixed inset-0 bg-[#EFF1F3] bg-opacity-40 flex justify-center items-center z-50">
-              <div className="bg-white rounded-lg p-6 w-full max-w-lg relative shadow-lg">
-                <button
-                  onClick={() => setSelectedMessage(null)}
-                  className="absolute top-2 right-2 text-gray-600 hover:text-red-500 text-xl"
-                >
-                  &times;
-                </button>
-                <h2 className="text-lg font-semibold mb-4 text-gray-800">
-                  Message
-                </h2>
-                <p className="text-gray-700 whitespace-pre-wrap">
-                  {selectedMessage}
-                </p>
-              </div>
-            </div>
-          )}
+       {selectedMessage && (
+  <div className="fixed inset-0 backdrop-blur-md mt-20 bg-opacity-40 flex justify-center items-center z-50">
+    <div className="bg-white rounded-lg p-6 w-full max-w-lg relative shadow-lg max-h-[90vh] overflow-y-auto">
+      <button
+        onClick={() => setSelectedMessage(null)}
+        className="absolute top-2 right-2 text-gray-600 hover:text-red-500 text-xl"
+      >
+        &times;
+      </button>
+      <h2 className="text-lg font-semibold mb-4 text-gray-800">Message</h2>
+
+      {/* ✅ Scrollable content section */}
+      <div className="overflow-y-auto max-h-[60vh] pr-2">
+        <p className="text-gray-700 whitespace-pre-wrap">
+          {selectedMessage}
+        </p>
+      </div>
+    </div>
+  </div>
+)}
 
           {/* Blog Section */}
           <div className="bg-white rounded-xl p-4 shadow-sm overflow-x-auto w-full md:w-1/3 mt-6 md:mt-0">

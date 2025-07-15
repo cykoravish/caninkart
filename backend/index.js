@@ -18,7 +18,7 @@ require("./Models/db");
 //middleware
 app.use(
   cors({
-    origin: [process.env.FRONTEND_URL, 'https://www.caninkart.com', 'https://caninkart.com'],
+    origin: ['http://localhost:5173', 'https://www.caninkart.com', 'https://caninkart.com'],
     methods: ["POST", "GET", "PUT", "DELETE"],
     credentials: true,
   })

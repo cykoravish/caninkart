@@ -1,12 +1,24 @@
 import React, { useEffect, useState } from "react";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useLocation, useNavigate, useParams } from "react-router-dom";
 import ContactForm from "../components/contactForm";
 import { FaArrowLeft } from "react-icons/fa";
-
+import Productss from "./productdata";
 const ProductDetail = () => {
+  const {id} = useParams();
+  console.log(id);
+   const slugify = (str) =>
+  str
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, '-') // replace non-alphanumeric with hyphen
+    .replace(/(^-|-$)/g, '');   
+
+   const product = Productss.find(
+    (item) => slugify(item.name) == id.toLowerCase()
+  );
+  console.log(product);
   const navigate = useNavigate();
-  const location = useLocation();
-  const product = location.state?.product;
+  // const location = useLocation();
+  // const product = location.state?.product;
 
   // Get thumbnails from product data or use fallback
   const thumbnails =
@@ -573,7 +585,50 @@ const ProductDetail = () => {
               </div>
             </div>
           )}
-          {product.id === 9 && (
+          {product.id === 9   && (
+            <div className="space-y-4 text-left flex-1">
+              <h1 className="text-xl sm:text-2xl font-semibold text-gray-800 w-full">
+                {product.name}
+              </h1>
+
+              <p className="text-gray-700 font-semibold text-lg">
+                Printed Dog Leash – Fashion Meets Function
+              </p>
+
+              <p className="text-gray-700">
+                Caninkart’s printed dog leashes bring a vibrant, personalized
+                look to your walks while offering practical features that
+                prioritize safety and durability.
+              </p>
+
+              <div className="space-y-2 text-gray-700">
+                <h2 className="text-lg font-semibold text-gray-800">
+                  🐾 Features:
+                </h2>
+                <ul className="list-disc list-inside">
+                  <li>Stylish Printed Design – Eye-catching and fun</li>
+                  <li>Durable Polyester – Built for daily use</li>
+                  <li>Comfortable Padded Grip – For long, enjoyable walks</li>
+                  <li>Heavy-Duty Metal Hook – Ensures a secure hold</li>
+                  <li>Fade-Resistant – Prints remain vibrant after washes</li>
+                  <li>
+                    Lightweight & Strong – Easy to handle without compromising
+                    strength
+                  </li>
+                  <li>
+                    Multiple Lengths & Widths – Tailored for every dog size
+                  </li>
+                  <li>Matching Collars – Pair with coordinated accessories</li>
+                  <li>Easy to Clean – Quick-drying and washable</li>
+                  <li>
+                    Custom Branding Option – Available for bulk orders or
+                    promotional gifts
+                  </li>
+                </ul>
+              </div>
+            </div>
+          )}
+           { product.id === 10  && (
             <div className="space-y-4 text-left flex-1">
               <h1 className="text-xl sm:text-2xl font-semibold text-gray-800 w-full">
                 {product.name}
@@ -617,97 +672,63 @@ const ProductDetail = () => {
             </div>
           )}
 
-          {product.id === 10 && (
+          {product.id === 11 && (
             <div className="space-y-4 text-left flex-1">
               <h1 className="text-xl sm:text-2xl font-semibold text-gray-800 w-full">
                 {product.name}
               </h1>
 
-              <p className="text-gray-700 font-semibold text-lg">
-                Pumpkin Shaped Cat Hut – Cozy, Cute, and Perfect for Feline
-                Comfort
+              <p className="text-gray-700 ">
+               A <span className="font-bold">step-in harness for dogs</span> is a popular and easy-to-use type of dog harness designed for comfort and convenience. Instead of pulling the harness over the dog’s head, you lay it flat on the ground and have your dog “step in” with its front legs. Then, you simply pull it up and fasten it around the back.
+
               </p>
+
+              <p><span className="text-lg font-semibold my-5 ">🦴 Key Features of Step-In Dog Harness:</span>
+              <ol type="1" className="list-decimal pl-5 space-y-2 text-gray-700 text-base">
+  <li><strong>Easy to Put On & Take Off:</strong> Ideal for squirmy or anxious dogs.</li>
+  <li><strong>Even Pressure Distribution:</strong> Reduces stress on the neck.</li>
+  <li><strong>Comfortable Fit:</strong> Often padded and made with breathable materials.</li>
+  <li><strong>Secure Design:</strong> Double D-rings and sturdy buckles for leash attachment.</li>
+  <li><strong>Escape-Proof Options:</strong> Many step-in harnesses are designed to be escape-resistant.</li>
+</ol>
+
+
+
+
+
+
+
+</p>
 
               <p className="text-gray-700">
-                Give your furry friend the ultimate cozy hideaway with our
-                Pumpkin Shaped Cat Hut – a charming and functional pet bed that
-                combines whimsical design with unmatched comfort. Thoughtfully
-                designed for cats and small dogs, this hut offers a safe and
-                stylish space where your pet can relax, nap, or simply enjoy
-                some quiet time.
-              </p>
+              <span  className="text-lg font-semibold my-5 text-black">🐕 Best For:</span>
+              <li>Small to large-sized dogs like Shih Tzu, Labrador, Golden Retriever, German Shepherd</li>
 
-              <p className="text-gray-700">
-                Crafted in an adorable pumpkin shape, this cat hut adds a
-                playful and decorative touch to any room, blending easily into
-                modern, minimalist, or seasonal décor. The round and spacious
-                design mimics a natural den-like environment, offering your pet
-                a sense of security and warmth. Whether your cat is curling up
-                for a nap or seeking shelter from a noisy household, this hut
-                provides the perfect refuge.
               </p>
 
               <div>
-                <h2 className="text-lg font-semibold mb-2 text-gray-800">
-                  • Soft, Durable & Pet-Friendly Materials
-                </h2>
-                <p className="text-gray-700">
-                  Made with premium fabric, the Pumpkin Cat Hut is both soft to
-                  the touch and gentle on your pet’s skin. The interior is
-                  padded with cozy polyfill that supports restful sleep and
-                  maintains its shape after extended use. The outer shell is
-                  sturdy yet flexible, allowing the hut to retain its unique
-                  shape while still being lightweight and easy to move around
-                  your home.
-                </p>
+              <p className="text-lg font-semibold  text-black">🔧 How to Use:</p>
+              <ol className="list-decimal pl-5 space-y-2 text-gray-700 text-base">
+                <li>Lay the harness flat on the ground.</li>
+                <li>Place your dog’s front legs into the two openings.</li>
+                <li>Lift the sides and buckle the harness over the back.</li>
+                <li>Adjust straps for a snug, comfortable fit.</li>
+                <li>Attach the leash to the D-rings on the back.</li>
+               
+
+
+
+
+
+              </ol>
               </div>
 
-              <div>
-                <h2 className="text-lg font-semibold mb-2 text-gray-800">
-                  • Comfort Meets Convenience
-                </h2>
-                <p className="text-gray-700">
-                  This cat hut is designed with your convenience in mind. The
-                  removable inner cushion makes cleaning hassle-free, and the
-                  entire hut can be spot cleaned with ease. Its lightweight
-                  build ensures portability, so your pet can enjoy their cozy
-                  corner in the living room, bedroom, or even while traveling.
-                </p>
-              </div>
 
-              <div>
-                <h2 className="text-lg font-semibold mb-2 text-gray-800">
-                  • Ideal for Cats and Puppies
-                </h2>
-                <p className="text-gray-700">
-                  Available in multiple colors and suitable for kittens, adult
-                  cats, and puppies, this pumpkin hut is a versatile choice for
-                  pet owners who want something functional yet visually
-                  appealing.
-                </p>
-              </div>
 
-              <div className="mt-6">
-                <h2 className="text-lg font-semibold text-gray-800 mb-2">
-                  Why Pet Parents Love It:
-                </h2>
-                <ul className="list-disc pl-6 space-y-2 text-gray-700">
-                  <li>Whimsical pumpkin design</li>
-                  <li>Provides a secure and private retreat for pets</li>
-                  <li>Cushioned and warm for all-season comfort</li>
-                  <li>Easy to clean and move</li>
-                  <li>Perfect gift for pet lovers or festive pet setups</li>
-                </ul>
-              </div>
-
-              <div className="mt-6 p-4 bg-orange-100 border-l-4 border-orange-500 rounded">
-                <strong>Treat your pet</strong> to the luxury of comfort and
-                cuteness with the Pumpkin Shaped Cat Hut – where every nap feels
-                like a warm hug inside a pumpkin.
-              </div>
+             
             </div>
           )}
-          {product.id === 11 && (
+          {product.id === 12 && (
             <div className="space-y-4 text-left flex-1">
               <h1 className="text-xl sm:text-2xl font-semibold text-gray-800 w-full">
                 {product.name}
@@ -744,7 +765,7 @@ const ProductDetail = () => {
               </div>
             </div>
           )}
-          {product.id === 12 && (
+          {product.id === 13 && (
             <div className="space-y-4 text-left flex-1">
               <h1 className="text-xl sm:text-2xl font-semibold text-gray-800 w-full">
                 {product.name}
@@ -769,7 +790,7 @@ const ProductDetail = () => {
               </p>
             </div>
           )}
-          {product.id === 13 && (
+          {product.id === 14 && (
             <div className="space-y-4 text-left flex-1">
               <h1 className="text-xl sm:text-2xl font-semibold text-gray-800 w-full">
                 {product.name}
@@ -803,7 +824,7 @@ const ProductDetail = () => {
               </div>
             </div>
           )}
-          {product.id === 14 && (
+          {product.id === 15 && (
             <div className="space-y-4 text-left flex-1">
               <h1 className="text-xl sm:text-2xl font-semibold text-gray-800 w-full">
                 {product.name}
@@ -840,7 +861,7 @@ const ProductDetail = () => {
               </div>
             </div>
           )}
-          {product.id === 15 && (
+          {product.id === 16 && (
             <div className="space-y-4 text-left flex-1">
               <h1 className="text-xl sm:text-2xl font-semibold text-gray-800 w-full">
                 {product.name}
@@ -869,7 +890,7 @@ const ProductDetail = () => {
               </p>
             </div>
           )}
-          {product.id === 16 && (
+          {product.id === 17 && (
             <div className="space-y-4 text-left flex-1">
               <h1 className="text-xl sm:text-2xl font-semibold text-gray-800 w-full">
                 {product.name}
@@ -895,7 +916,7 @@ const ProductDetail = () => {
               </p>
             </div>
           )}
-          {product.id === 17 && (
+          {product.id === 18 && (
             <div className="space-y-4 text-left flex-1">
               <h1 className="text-xl sm:text-2xl font-semibold text-gray-800 w-full">
                 {product.name}
@@ -922,7 +943,7 @@ const ProductDetail = () => {
               </p>
             </div>
           )}
-          {product.id === 18 && (
+          {product.id === 19 && (
             <div className="space-y-4 text-left flex-1">
               <h1 className="text-xl sm:text-2xl font-semibold text-gray-800 w-full">
                 {product.name}
@@ -947,7 +968,7 @@ const ProductDetail = () => {
               </p>
             </div>
           )}
-          {product.id === 19 && (
+          {product.id === 20 && (
             <div className="space-y-4 text-left flex-1">
               <h1 className="text-xl sm:text-2xl font-semibold text-gray-800 w-full">
                 {product.name}
@@ -976,7 +997,7 @@ const ProductDetail = () => {
             </div>
           )}
 
-          {product.id === 20 && (
+          {product.id === 21 && (
             <div className="space-y-4 text-left flex-1">
               <h1 className="text-xl sm:text-2xl font-semibold text-gray-800 w-full">
                 {product.name}
@@ -1006,7 +1027,7 @@ const ProductDetail = () => {
               </p>
             </div>
           )}
-          {product.id === 21 && (
+          {product.id === 22 && (
             <div className="space-y-4 text-left flex-1">
               <h1 className="text-xl sm:text-2xl font-semibold text-gray-800 w-full">
                 {product.name}
@@ -1029,7 +1050,7 @@ const ProductDetail = () => {
               </p>
             </div>
           )}
-          {product.id === 22 && (
+          {product.id === 23 && (
             <div className="space-y-4 text-left flex-1">
               <h1 className="text-xl sm:text-2xl font-semibold text-gray-800 w-full">
                 {product.name}
@@ -1058,7 +1079,7 @@ const ProductDetail = () => {
             </div>
           )}
 
-          {product.id === 23 && (
+          {product.id === 24 && (
             <div className="space-y-4 text-left flex-1">
               <h1 className="text-xl sm:text-2xl font-semibold text-gray-800 w-full">
                 {product.name}
@@ -1148,7 +1169,7 @@ const ProductDetail = () => {
               </div>
             </div>
           )}
-          {product.id === 24 && (
+          {product.id === 25 && (
             <div className="space-y-4 text-left flex-1">
               <h1 className="text-xl sm:text-2xl font-semibold text-gray-800 w-full">
                 {product.name}
@@ -1180,7 +1201,7 @@ const ProductDetail = () => {
               </p>
             </div>
           )}
-          {product.id === 25 && (
+          {product.id === 26 && (
             <div className="space-y-4 text-left flex-1">
               <h1 className="text-xl sm:text-2xl font-semibold text-gray-800 w-full">
                 {product.name}
@@ -1203,7 +1224,7 @@ const ProductDetail = () => {
               </p>
             </div>
           )}
-          {product.id === 26 && (
+          {product.id === 27 && (
             <div className="space-y-4 text-left flex-1">
               <h1 className="text-xl sm:text-2xl font-semibold text-gray-800 w-full">
                 {product.name}
@@ -1228,7 +1249,7 @@ const ProductDetail = () => {
               </p>
             </div>
           )}
-          {product.id === 27 && (
+          {product.id === 28 && (
             <div className="space-y-4 text-left flex-1">
               <h1 className="text-xl sm:text-2xl font-semibold text-gray-800 w-full">
                 {product.name}
@@ -1256,7 +1277,7 @@ const ProductDetail = () => {
               </p>
             </div>
           )}
-          {product.id === 28 && (
+          {product.id === 29 && (
             <div className="space-y-4 text-left flex-1">
               <h1 className="text-xl sm:text-2xl font-semibold text-gray-800 w-full">
                 {product.name}

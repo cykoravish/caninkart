@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { FaTrash } from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
 
 const AdminContact = () => {
+  const navigate = useNavigate();
   const [contactData, setContactData] = useState([]);
   const [selectedMessage, setSelectedMessage] = useState(null); // NEW
 
@@ -35,6 +37,8 @@ const AdminContact = () => {
       alert("Failed to delete message.");
     }
   };
+
+  
 
   return (
     <div className="bg-[#D7D9DD] min-h-screen">
@@ -81,25 +85,34 @@ const AdminContact = () => {
       </div>
 
       {/* Modal for Full Message */}
-      {selectedMessage && (
-        <div className="fixed inset-0  flex justify-center items-center z-50">
-          <div className="bg-white rounded-lg p-6 w-full max-w-lg relative shadow-lg">
-            <button
-              onClick={() => setSelectedMessage(null)}
-              className="absolute top-2 right-2 text-gray-600 hover:text-red-500 text-xl"
-            >
-              &times;
-            </button>
-            <h2 className="text-lg font-semibold mb-4 text-gray-800">
-              {" "}
-              Message
-            </h2>
-            <p className="text-gray-700 whitespace-pre-wrap">
-              {selectedMessage}
-            </p>
-          </div>
+{selectedMessage && (
+  <div className=" mt-20 fixed inset-0 backdrop-blur-lg w-full h-90vh z-50  bg-opacity-30 overflow-y-auto">
+    <div className="min-h-screen flex justify-center items-start py-10">
+      <div className="bg-white rounded-lg p-6 w-full max-w-lg relative shadow-lg max-h-[90vh] overflow-hidden">
+        <button
+
+          onClick={() => setSelectedMessage(null)}
+          className="absolute top-2 right-2 text-gray-600 hover:text-red-500 text-xl"
+        >
+          &times;
+        </button>
+
+        <h2 className="text-lg font-semibold mb-4 text-gray-800">Message</h2>
+
+        
+        <div className="overflow-y-auto max-h-[60vh] pr-2">
+          <p className="text-gray-700 whitespace-pre-wrap">
+            {selectedMessage}
+          </p>
         </div>
-      )}
+      </div>
+    </div>
+  </div>
+)}
+
+
+
+
     </div>
   );
 };

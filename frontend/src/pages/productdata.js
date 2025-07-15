@@ -182,16 +182,24 @@ const Productss = [
       Images9.jacket5,
       Images9.jacket6,
       Images9.jacket7,
+     
+    ],
+    name: "Wind Proof Jacket",
+    category: "JACKETS",
+  },{
+    id:10,
+     image: Images9.jacket8,
+    thumbnails: [
       Images9.jacket8,
       Images9.jacket9,
       Images9.jacket10,
-      Images9.jacket11,
-    ],
-    name: "Jacket",
+      Images9.jacket11]
+    ,
+      name: " Premium Jacket",
     category: "JACKETS",
   },
   {
-    id: 10,
+    id: 11,
     image: Image10.Basket,
     thumbnails: [
       Image10.Basket,
@@ -200,11 +208,11 @@ const Productss = [
       Image10.Basket3,
       Image10.Basket4,
     ],
-    name: "Step-In Harness/ Basket Harness",
+    name: "Step-In Harness / Basket Harness",
     category: "WALKING ESSENTIALS",
   },
   {
-    id: 11,
+    id: 12,
     image: Images11.tuxedo1,
     thumbnails: [
       Images11.tuxedo1,
@@ -217,7 +225,7 @@ const Productss = [
   },
 
   {
-    id: 12,
+    id: 13,
     image: Images12.bow_ties1,
     thumbnails: [
       Images12.bow_ties1,
@@ -231,13 +239,13 @@ const Productss = [
       Images12.bow_ties9,
       Images12.bow_ties10,
     ],
-    name: "Bow Tue",
+    name: "Bow Tie",
     category : "Others"
     
   },
 
   {
-    id: 13,
+    id: 14,
     image: Images13.bandana,
     thumbnails: [
       Images13.bandana,
@@ -260,7 +268,7 @@ const Productss = [
   },
 
   {
-    id: 14,
+    id: 15,
     image: Image14.PrintedMat,
     thumbnails: [
       Image14.PrintedMat,
@@ -287,7 +295,7 @@ const Productss = [
   },
 
   {
-    id: 15,
+    id: 16,
     image: Image15.furMat,
     thumbnails: [
       Image15.furMat,
@@ -299,7 +307,7 @@ const Productss = [
     category: "BEDDING",
   },
   {
-    id: 16,
+    id: 17,
     image: Image16.patternLounger,
     thumbnails: [
       Image16.patternLounger,
@@ -314,7 +322,7 @@ const Productss = [
     category: "BEDDING",
   },
   {
-    id: 17,
+    id: 18,
     image: Images17.EmbLounger,
     thumbnails: [
       Images17.EmbLounger,
@@ -325,7 +333,7 @@ const Productss = [
     category: "BEDDING",
   },
   {
-    id: 18,
+    id: 19,
     image: Images18.furLounger,
     thumbnails: [
       Images18.furLounger,
@@ -348,7 +356,7 @@ const Productss = [
     category: "BEDDING",
   },
   {
-    id: 19,
+    id: 20,
     image: Image19.printLounger,
     thumbnails: [
       Image19.printLounger,
@@ -368,7 +376,7 @@ const Productss = [
     category: "BEDDING",
   },
   {
-    id: 20,
+    id: 21,
     image: Image20.Mattress,
     thumbnails: [
       Image20.Mattress,
@@ -381,7 +389,7 @@ const Productss = [
     category: "BEDDING",
   },
   {
-    id: 21,
+    id: 22,
     image: Image21.RoundBed1,
     thumbnails: [
       Image21.RoundBed,
@@ -396,7 +404,7 @@ const Productss = [
     category: "BEDDING",
   },
   {
-    id: 22,
+    id: 23,
     image: Image22.hutSnail,
     thumbnails: [
       Image22.hutSnail,
@@ -410,7 +418,7 @@ const Productss = [
     category: "CAVE HUT",
   },
   {
-    id: 23,
+    id: 24,
     image: Image23.hutPumpkin,
     thumbnails: [
       Image23.hutPumpkin,
@@ -426,7 +434,7 @@ const Productss = [
     category: "CAVE HUT"
   },
   {
-    id: 24,
+    id: 25,
     image: Images24.hutCaterpillar4,
     thumbnails: [
       Images24.hutCaterpillar,
@@ -439,7 +447,7 @@ const Productss = [
   },
 
   {
-    id: 25,
+    id: 26,
     image: Images25.bedCartoon,
     thumbnails: [
       Images25.bedCartoon,
@@ -450,21 +458,21 @@ const Productss = [
     category: "CAVE HUT"
   },
   {
-    id: 26,
+    id: 27,
     image: Images26.xmas2,
     thumbnails: [Images26.xmas, Images26.xmas1, Images26.xmas2],
     name: "Cave Bed-X-MAS",
     category: "CAVE HUT"
   },
   {
-    id: 27,
+    id: 28,
     image: Images27.hutGray,
     thumbnails: [Images27.hutGray, Images27.hutGray1, Images27.hutGray2],
     name: "Cave Bed-Grey",
     category: "CAVE HUT"
   },
   {
-    id: 28,
+    id: 29,
     image: Images28.hutPrinted1,
     thumbnails: [
       Images28.hutPrinted,

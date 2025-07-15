@@ -81,7 +81,7 @@ const ContactForm = () => {
   };
 
   return (
-    <section className="relative py-10 px-4 bg-[#FDFDFD] text-center max-w-screen-2xl mx-auto">
+    <section className="relative hidden sm:flex flex-col py-10 px-4 bg-[#FDFDFD] text-center max-w-screen-2xl mx-auto">
       <h2 className=" text-orange-500 mb-2 flex justify-center items-center gap-2 text-lg font-semibold"><FaPaw/> CONTACT</h2>
       <h3 className="text-lg font-bold mb-0 md:mb-6">Contact Us</h3>
 
@@ -98,7 +98,7 @@ const ContactForm = () => {
             className="bg-[#F0F2F3] p-6 rounded shadow-md w-full max-w-sm text-left space-y-3 text-black"
             onSubmit={handleSubmit}
           >
-            <h3 className="font-bold text-lg">Do You Have Any Questions?</h3>
+            <h3 className="font-bold text-lg">Enquiry Form </h3>
 
             {successMsg && <p className="text-green-600">{successMsg}</p>}
             {errorMsg && <p className="text-red-600">{errorMsg}</p>}
