@@ -237,10 +237,10 @@ const LocationHierarchy = () => {
             </div>
           ) : (
             <>
-              <div className="swiper-container  max-w-[1400px] mx-auto relative">
-                <div className="swiper-wrapper ">
+              <div className="swiper-container   justify-center max-w-[1000px] mx-auto ">
+                <div className="swiper-wrapper  ">
                   {locations.map((country) => (
-                    <div key={country._id} className="swiper-slide">
+                    <div key={country._id} className="swiper-slide ">
                       <button
                         onClick={() => toggleCountry(country._id)}
                         className="p-4 flex flex-col items-center"
@@ -265,10 +265,10 @@ const LocationHierarchy = () => {
                   ))}
                 </div>
 
-                <div className="custom-prev" aria-label="Previous slide">
+                <div className="custom-prev -ml-0" aria-label="Previous slide">
                   <FaLessThan />
                 </div>
-                <div className="custom-next" aria-label="Next slide">
+                <div className="custom-next -ml-0 " aria-label="Next slide">
                   <FaGreaterThan />
                 </div>
               </div>
