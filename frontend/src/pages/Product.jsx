@@ -7,12 +7,11 @@ import Productss from "./productdata";
 const Product = () => {
   const navigate = useNavigate();
   const slugify = (str) =>
-  str
-    .toLowerCase()
-    .replace(/[^a-z0-9]+/g, '-') // replace non-alphanumeric with hyphen
-    .replace(/(^-|-$)/g, '');    // remove leading/trailing hyphens
+    str
+      .toLowerCase()
+      .replace(/[^a-z0-9]+/g, "-") // replace non-alphanumeric with hyphen
+      .replace(/(^-|-$)/g, ""); // remove leading/trailing hyphens
 
-  
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -26,7 +25,7 @@ const Product = () => {
           {Productss.map((product) => (
             <Link
               key={product.id}
-             to={`/product/${slugify(product.name)}`}
+              to={`/product/${slugify(product.name)}`}
               state={{ product }}
               className=" rounded shadow p-2 text-center cursor-pointer hover:ring-2 ring-orange-300 transition duration-200 block bg-white"
             >
@@ -37,17 +36,17 @@ const Product = () => {
               />
               <p className="mt-2 text-lg font-medium">{product.name}</p> */}
               <div className="w-full h-40 flex items-center justify-center bg-white">
-                              <img 
-                              src={product.image || img11}
-                                onError={(e) => {
-                                  e.target.onerror = null;
-                                  e.target.src = img11;
-                                }}
-                                alt={product.name}
-                                className="max-h-full object-contain"
-                                />
-                                </div>
-                                <p className="mt-2 text-lg  font-medium">{product.name}</p>
+                <img
+                  src={product.image || img11}
+                  onError={(e) => {
+                    e.target.onerror = null;
+                    e.target.src = img11;
+                  }}
+                  alt={product.name}
+                  className="max-h-full object-contain"
+                />
+              </div>
+              <p className="mt-2 text-lg  font-medium">{product.name}</p>
             </Link>
           ))}
         </div>
