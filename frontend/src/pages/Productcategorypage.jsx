@@ -1,80 +1,100 @@
-import React from 'react'
-import bg from "../assets/dog.jpg"
-import img from "../assets/ctf.png"
-import { useNavigate, useParams } from 'react-router-dom'
+import React from "react";
+import bg from "../assets/dog.jpg";
+import img from "../assets/ctf.png";
+import { useNavigate, useParams } from "react-router-dom";
 function Productcategorypage() {
-  const {name} = useParams()
-  const navigate = useNavigate()
-  const data =[
+  const { name } = useParams();
+  const navigate = useNavigate();
+  const data = [
     {
-      productId :1,
+      productId: 1,
       productName: `H-Harness`,
-      img:img
-    },{
-      productId :2,
-      productName:`Easy On Harness`,
-        img:bg
-    },{
-      productId :3,
-      productName:`Full Body Harness`,
-        img:bg
-    },{
-      productId :4,
-      productName:`Chest Harness`,
-        img:bg
-    },{
-      productId :5,
-      productName:`Cat Harness`
-    },{
-      productId :6,
-      productName:`Dog Collar`
-    },{
-      productId :8,
-      productName:`Leash`
-    },{
-      productId :9,
-      productName:`Jacket`
-    },{
-      productId :10,
-      productName:`Step-in Harness`
-    },{
-      productId :11,
-      productName:`Tuxedo`
-    },{
-      productId :12,
-      productName:`Bow Tie`
-    },{
-      productId :13,
-      productName:`Bandana`
-    },{
-      productId :14,
-      productName:`Printed Mat`
-    },{
-      productId :15,
-      productName:`Fur Mat`
-    },{
-      productId :16,
-      productName:`Pattern Lounger`
-    },{
-      productId :17,
-      productName:`Embroidery Lounger`
-    },{
-      productId :18,
-      productName:`Fur Lounger`
-    },{
-      productId :19,
-      productName:`Printed Lounger`
-    },{
-      productId :20,
-      productName:`Mattress`
-    },{
-      productId :21,
-      productName:`Round Bed`
-    },{
-      productId :22,
-      productName:`Hut Snail`
+      img: img,
     },
-  ]
+    {
+      productId: 2,
+      productName: `Easy On Harness`,
+      img: bg,
+    },
+    {
+      productId: 3,
+      productName: `Full Body Harness`,
+      img: bg,
+    },
+    {
+      productId: 4,
+      productName: `Chest Harness`,
+      img: bg,
+    },
+    {
+      productId: 5,
+      productName: `Cat Harness`,
+    },
+    {
+      productId: 6,
+      productName: `Dog Collar`,
+    },
+    {
+      productId: 8,
+      productName: `Leash`,
+    },
+    {
+      productId: 9,
+      productName: `Jacket`,
+    },
+    {
+      productId: 10,
+      productName: `Step-in Harness`,
+    },
+    {
+      productId: 11,
+      productName: `Tuxedo`,
+    },
+    {
+      productId: 12,
+      productName: `Bow Tie`,
+    },
+    {
+      productId: 13,
+      productName: `Bandana`,
+    },
+    {
+      productId: 14,
+      productName: `Printed Mat`,
+    },
+    {
+      productId: 15,
+      productName: `Fur Mat`,
+    },
+    {
+      productId: 16,
+      productName: `Pattern Lounger`,
+    },
+    {
+      productId: 17,
+      productName: `Embroidery Lounger`,
+    },
+    {
+      productId: 18,
+      productName: `Fur Lounger`,
+    },
+    {
+      productId: 19,
+      productName: `Printed Lounger`,
+    },
+    {
+      productId: 20,
+      productName: `Mattress`,
+    },
+    {
+      productId: 21,
+      productName: `Round Bed`,
+    },
+    {
+      productId: 22,
+      productName: `Hut Snail`,
+    },
+  ];
   return (
     <>
       <div className="flex w-full h-[50vh] lg:h-[80vh]  items-center bg-cover bg-center relative">
@@ -109,34 +129,23 @@ function Productcategorypage() {
             cursor-pointer text-center 
             transition-all duration-300 ease-in-out 
             rounded-sm shadow hover:shadow-lg
-            transform hover:scale-105 mx-6 my-1.5">
-              
-                    
-                          <li
-                            key={item._id}
-                            className="w-full "
-                           
-                          >
-                           
-                              <div className="  w-full items-center text-center px-1 py-0.5 space-y-3 ">
-                                
-                                <p className="px-1 w-full flex justify-center items-center font-medium text-lg">
-                                  {item.productName}
-                                </p>
-                              </div>
-                              {/* <p>
+            transform hover:scale-105 mx-6 my-1.5"
+          >
+            <li key={item._id} className="w-full ">
+              <div className="  w-full items-center text-center px-1 py-0.5 space-y-3 ">
+                <p className="px-1 w-full flex justify-center items-center font-medium text-lg">
+                  {item.productName}
+                </p>
+              </div>
+              {/* <p>
                                 <TfiArrowTopRight className="text-[#B9E9F9] w-8 h-8" />
                               </p> */}
-                           
-                          </li>
-                      
-                    </ul>
-      )
-        
-      )}
-</div>
+            </li>
+          </ul>
+        ))}
+      </div>
     </>
-  )
+  );
 }
 
-export default Productcategorypage
+export default Productcategorypage;

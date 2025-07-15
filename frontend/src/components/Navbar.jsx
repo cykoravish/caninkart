@@ -39,6 +39,11 @@ const Navbar = () => {
     setShowSearch(false); 
   };
 
+  const slugify = (str) =>
+    str
+      .toLowerCase()
+      .replace(/[^a-z0-9]+/g, "-") // replace non-alphanumeric with hyphen
+      .replace(/(^-|-$)/g, ""); // remove leading/trailing hyphens
   
   return (
     <nav className="fixed  top-0 w-full z-50 bg-white shadow-md">
@@ -107,7 +112,8 @@ const Navbar = () => {
                   searchedProducts.map((product, idx) => (
                     <Link
                       key={idx}
-                      to={`/product/${product.id}`}
+                      // to={`/product/${product.id}`}
+                      to = {`/product/${slugify(product.name)}`}
                       state={{ product }}
                       className="block px-4 py-2 hover:bg-gray-100 text-sm text-gray-700"
                       onClick={() => setSearchQuery("")}

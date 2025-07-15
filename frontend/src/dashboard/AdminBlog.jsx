@@ -597,6 +597,7 @@ const BlogModalPage = () => {
 )}
 
       </div>
+      <ToastContainer/>
     </div>
   );
 };

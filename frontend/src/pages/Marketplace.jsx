@@ -82,10 +82,20 @@ const LocationHierarchy = () => {
   const toggleCountry = (countryId) => {
     setExpandedCountryId((prev) => (prev === countryId ? null : countryId));
   };
+  
+  const slugify = (str) =>
+    str
+      .toLowerCase()
+      .replace(/[^a-z0-9]+/g, "-") // replace non-alphanumeric with hyphen
+      .replace(/(^-|-$)/g, ""); // remove leading/trailing hyphens
+  
+ 
 
   const handleStateClick = (state) => {
     navigate(`/districts/${state.name.toLowerCase().replace(/\s+/g, "-")}`, { state: { stateData: state } });
   };
+
+
 
   const category=[
     {

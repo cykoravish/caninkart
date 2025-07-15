@@ -26,6 +26,13 @@ const Blog = () => {
     window.scrollTo(0, 0);
   }, []);
 
+ const slugify = (str) =>
+    str
+      .toLowerCase()
+      .replace(/[^a-z0-9]+/g, "-") // replace non-alphanumeric with hyphen
+      .replace(/(^-|-$)/g, ""); // remove leading/trailing hyphens
+  
+
   return (
     <>
       <div className="bg-[#EDEBE0] py-8 px-10 mt-16 max-w-screen-2xl mx-auto">
@@ -36,7 +43,9 @@ const Blog = () => {
         ) : (
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 space-y-1">
             {blogs.map((blog) => (
-              <Link to={`/blog/${blog._id}`} state={blog}>
+              // <Link to={`/blog/${blog.title}`} state={blog}>
+              <Link to={`/blog/${slugify(blog.title)}`} state={blog}>
+                 {/* to = {`/product/${slugify(product.name)}`} */}
                 <div
                   key={blog._id}
                   className="bg-[#f5f4ef] rounded-xl  shadow-lg overflow-hidden border relative border-gray-200"

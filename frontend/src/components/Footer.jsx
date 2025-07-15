@@ -35,7 +35,7 @@ const Footer = () => {
               Quick Links
             </h4>
             <ul className="space-y-1  overflow-auto h-22 custom-scrollbar">
-              {["Home", "About Us", "Product", "Dog Breed", "Market Place"].map(
+              {["Home", "About Us", "Product", "Dog Breed", "Market-Place"].map(
                 (text, idx) => (
                   <li key={idx}>
                     <Link

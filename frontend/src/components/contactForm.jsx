@@ -98,7 +98,7 @@ const ContactForm = () => {
             className="bg-[#F0F2F3] p-6 rounded shadow-md w-full max-w-sm text-left space-y-3 text-black"
             onSubmit={handleSubmit}
           >
-            <h3 className="font-bold text-lg">Enquiry Form </h3>
+            <h3 className="font-bold text-lg text-center">Enquiry Form </h3>
 
             {successMsg && <p className="text-green-600">{successMsg}</p>}
             {errorMsg && <p className="text-red-600">{errorMsg}</p>}
@@ -109,7 +109,7 @@ const ContactForm = () => {
               name="name"
               value={formData.name}
               onChange={handleChange}
-              placeholder="Your Name"
+              placeholder="Name"
               required
             />
             <input
@@ -118,7 +118,7 @@ const ContactForm = () => {
               name="contact"
               value={formData.contact}
               onChange={handleChange}
-              placeholder="Your Contact"
+              placeholder=" Contact"
               required
             />
             <input
@@ -127,7 +127,7 @@ const ContactForm = () => {
               name="email"
               value={formData.email}
               onChange={handleChange}
-              placeholder="Your Email"
+              placeholder="Email"
               required
             />
             <textarea
@@ -135,7 +135,7 @@ const ContactForm = () => {
               name="message"
               value={formData.message}
               onChange={handleChange}
-              placeholder="Your Message"
+              placeholder=" Message"
               rows="3"
               required
             ></textarea>
