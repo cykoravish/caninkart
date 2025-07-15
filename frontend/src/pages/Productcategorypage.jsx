@@ -8,47 +8,47 @@ function Productcategorypage() {
   const data =[
     {
       productId :1,
-      productName: `H-Harness `,
+      productName: `H-Harness`,
       img:img
     },{
       productId :2,
-      productName:`Easy On Harness `,
+      productName:`Easy On Harness`,
         img:bg
     },{
       productId :3,
-      productName:`Full Body Harness `,
+      productName:`Full Body Harness`,
         img:bg
     },{
       productId :4,
-      productName:`Chest Harness `,
+      productName:`Chest Harness`,
         img:bg
     },{
       productId :5,
-      productName:`Cat Harness `
+      productName:`Cat Harness`
     },{
       productId :6,
-      productName:`Dog Collar `
+      productName:`Dog Collar`
     },{
       productId :8,
-      productName:`Leash `
+      productName:`Leash`
     },{
       productId :9,
-      productName:`Jacket `
+      productName:`Jacket`
     },{
       productId :10,
-      productName:`Step-in Harness `
+      productName:`Step-in Harness`
     },{
       productId :11,
-      productName:`Tuxedo `
+      productName:`Tuxedo`
     },{
       productId :12,
       productName:`Bow Tie`
     },{
       productId :13,
-      productName:`Bandana `
+      productName:`Bandana`
     },{
       productId :14,
-      productName:`Printed Mat `
+      productName:`Printed Mat`
     },{
       productId :15,
       productName:`Fur Mat`
@@ -72,7 +72,7 @@ function Productcategorypage() {
       productName:`Round Bed`
     },{
       productId :22,
-      productName:`Hut-Snail`
+      productName:`Hut Snail`
     },
   ]
   return (
@@ -101,7 +101,7 @@ function Productcategorypage() {
     {data.map((item) =>(
                   <ul   
                   onClick={() =>{
-                               navigate(`/marketplace/${name}/${item.productName}`, { state: item })
+                               navigate(`/marketplace/${name}/${item.productName.toLowerCase().replace(/\s+/g, "-")}`, { state: item })
                                window.scrollTo(0, 0)
                             }} 
                   className="flex w-64  h-20 flex-row justify-center items-center 

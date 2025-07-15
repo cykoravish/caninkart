@@ -1,18 +1,41 @@
 
-import React, { useEffect } from "react";
+import React, { use, useEffect,useState  } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { FaArrowLeft } from "react-icons/fa";
 import ContactForm from "../components/contactForm";
-
+import { useParams } from "react-router-dom";
+import axios from "axios";
 const BlogDetails = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const data = location.state;
+  const { id } = useParams();
+  console.log("Blog ID:", id);
+  const [blog, setBlog] = useState(null);
+  console.log("Blog Details Data:", blog);
+  
+ useEffect(() => {
+  const fetchdata = async () => {
+    try {
+      const res = await axios.get(`${import.meta.env.VITE_BACKEND}/api/blogs`);
+      console.log("Fetched Blogs:", res.data);
+      const blogData = res.data.find((blog) => blog._id === id);
+      setBlog(blogData);
+      console.log("Fetched Blog Data:", blogData);
+    } catch (e) {
+      console.error("Error in BlogDetails fetchdata:", e);
+    }
+  };
 
-  if (!data) {
+  if (id) {
+    fetchdata();
+  }
+}, [id]);
+
+  if (!blog) {
     return (
       <div className="mt-20 text-center text-gray-600">
-        Blog data not available. Please go back and select a blog again.
+       loading...
         <br />
         <button
           onClick={() => navigate(-1)}
@@ -24,9 +47,11 @@ const BlogDetails = () => {
     );
   }
 
-   useEffect(()=>{
-    window.scrollTo(0,0);
-   }, [])
+
+
+
+ 
+
 
   return (
     <>
@@ -49,30 +74,33 @@ const BlogDetails = () => {
      
                {/* Meta Info */}
                <p className="text-sm text-gray-500">
-                 {new Date(data.date).toLocaleDateString()} · By {data.author}
+                 {new Date(blog.date).toLocaleDateString()} · By {blog.author}
                </p>
              </div>
      
-             {/* Image */}
-             {data.image && (
-               <div className="max-w-6xl mx-auto mb-6">
-                 <img
-                   src={`${import.meta.env.VITE_BACKEND}/${data.image}`}
-                   alt={data.title}
-                   className="w-full max-h-[500px] object-contain rounded-lg"
-                 />
-               </div>
-             )}
-     
-             {/* Blog Content */}
-             <div className="max-w-5xl mx-auto">
-               <h1 className="text-2xl sm:text-3xl font-bold mb-2">{data.title}</h1>
-               <div
-                 className="prose  text-gray-800 leading-relaxed"
-                 dangerouslySetInnerHTML={{ __html: data.content }}
-               />
-             </div>
-           </div>
+           
+    {blog.image && (
+      <div className="max-w-6xl mx-auto mb-6">
+        <img
+          src={`${import.meta.env.VITE_BACKEND}/${blog.image}`}
+          alt={blog.title}
+          className="w-full max-h-[500px] object-contain rounded-lg"
+        />
+      </div>
+    )}
+
+    {/* Blog Content */}
+    <div className="max-w-5xl mx-auto">
+      <h1 className="text-2xl sm:text-3xl font-bold mb-2">{blog.title}</h1>
+      <div
+        className="prose text-gray-800 leading-relaxed"
+        dangerouslySetInnerHTML={{ __html: blog.content }}
+      />
+    </div>
+  </div>
+
+
+          
      
 
       <ContactForm />

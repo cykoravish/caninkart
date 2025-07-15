@@ -17,7 +17,7 @@ import img11 from "../assets/pngwing.png";
 import { Link, useNavigate } from "react-router-dom";
 import img1 from "../assets/Printed_Collar/4.png";
 import img2 from "../assets/Fur Lounger/24.png";
-import img3 from "../assets/Cave Hut - Grey/11.png";
+import img3 from "../assets/cat_hut_caterpillar/4.png"
 import img4 from "../assets/Jackets/4.png";
 import img5 from "../assets/dwt1.png";
 import { useRef } from "react";

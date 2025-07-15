@@ -88,7 +88,7 @@ const CategoryProducts = () => {
     "TOYS",
   ];
 
-    const visibleProducts = showAll ? filteredProducts : filteredProducts.slice(0, 3);
+    const visibleProducts = showAll ? filteredProducts : filteredProducts;
 
   useEffect(() => {
     const results = Productss.filter((product) =>

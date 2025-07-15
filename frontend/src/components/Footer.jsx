@@ -42,7 +42,7 @@ const Footer = () => {
                       to={`/${
                         text === "Home"
                           ? ""
-                          : text.toLowerCase()
+                          : text.toLowerCase().replace(/\s+/g, "")
                       }`}
                       className="hover:text-orange-500 text-base"
                     >

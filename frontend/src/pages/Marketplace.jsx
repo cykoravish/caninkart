@@ -84,28 +84,28 @@ const LocationHierarchy = () => {
   };
 
   const handleStateClick = (state) => {
-    navigate(`/districts/${state.name}`, { state: { stateData: state } });
+    navigate(`/districts/${state.name.toLowerCase().replace(/\s+/g, "-")}`, { state: { stateData: state } });
   };
 
   const category=[
     {
         id:1,
-      name: "Manufacturers ",
+      name: "Manufacturers",
     },{
       id:2,
-      name:"Suppliers "
+      name:"Suppliers"
     },{
       id:3,
       name:"Private Labelling"
     },{
       id:4,
-      name:"Dealers "
+      name:"Dealers"
     },{
       id:5,
-      name:"Exporters "
+      name:"Exporters"
     },{
       id:6,
-      name:"Distributors "
+      name:"Distributors"
     }
   ]
   
@@ -181,8 +181,8 @@ const LocationHierarchy = () => {
          <ul    
          key={item.id}
           onClick={() =>{
-                               navigate(`/marketplace/${item.name}`)
-                               window.scrollTo(0, 0)
+                               navigate(`/marketplace/${item.name.toLowerCase().replace(/\s+/g, "-")}`);
+                                window.scrollTo(0, 0)
                             }} 
           className="flex h-16 flex-row justify-center items-center 
   bg-zinc-200 hover:bg-zinc-300 hover:text-zinc-800 

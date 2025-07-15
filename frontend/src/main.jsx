@@ -51,7 +51,7 @@ const router = createBrowserRouter([
       { path: 'product/:id', element: <ProductDetail /> },
       { path: 'blog', element: <Blog /> },
       { path: 'blog/:id', element: <BlogDetails /> },
-      { path: 'market place', element: <Marketplace /> },
+      { path: 'marketplace', element: <Marketplace /> },
       { path: "districts/:stateId" , element: <DistrictsPage /> },
       { path: 'marketplacedetails/:districtId', element: <MarketPlacedetails /> },
       { path: 'contact', element: <Contact /> },

@@ -446,47 +446,7 @@ const Productss = [
     category: "CAVE HUT"
   },
 
-  {
-    id: 26,
-    image: Images25.bedCartoon,
-    thumbnails: [
-      Images25.bedCartoon,
-      Images25.bedCartoon1,
-      Images25.bedCartoon2,
-    ],
-    name: "Cave Bed-Cartoon",
-    category: "CAVE HUT"
-  },
-  {
-    id: 27,
-    image: Images26.xmas2,
-    thumbnails: [Images26.xmas, Images26.xmas1, Images26.xmas2],
-    name: "Cave Bed-X-MAS",
-    category: "CAVE HUT"
-  },
-  {
-    id: 28,
-    image: Images27.hutGray,
-    thumbnails: [Images27.hutGray, Images27.hutGray1, Images27.hutGray2],
-    name: "Cave Bed-Grey",
-    category: "CAVE HUT"
-  },
-  {
-    id: 29,
-    image: Images28.hutPrinted1,
-    thumbnails: [
-      Images28.hutPrinted,
-      Images28.hutPrinted1,
-      Images28.hutPrinted2,
-      Images28.hutPrinted3,
-      Images28.hutPrinted4,
-      Images28.hutPrinted5,
-      Images28.hutPrinted6,
-      Images28.hutPrinted7,
-    ],
-    name: "Cave Bed-Printed",
-    category: "CAVE HUT"
-  },
+ 
 ];
 
 export default Productss;

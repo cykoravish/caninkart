@@ -38,7 +38,7 @@ function Productcategorydetailpage() {
         {/* <img className='h-72  w-72' src={item?.img} alt={item?.productName} /> */}
       <div className='flex flex-col gap-2'>
         <h1 className='text-2xl font-semibold '>{item?.productName} {name}</h1>
-        <p className='pr-14 text-lg'>When it comes to high-quality pet products, <span className='font-bold '>Caninkart</span> stands out as a trusted <span className='font-bold'>{item?.productName}  {name} in Dehradun, Uttarakhand</span>. With a strong commitment to excellence, 
+        <p className='pr-14 text-lg'>When it comes to high-quality pet products, <span className='font-bold '>Caninkart</span> stands out as a trusted <span className='font-bold'>{item?.productName}  {name} in Dehradun, Uttarakhand</span>. With a strong commitment to excellence. 
        </p>
        <p className='text-lg'>The brand has earned a reputation for manufacturing durable, stylish, and comfortable accessories that cater to all dog breeds and sizes. Whether you own a playful puppy or a large, energetic dog, they offer a diverse collection designed to meet every need.
         The brand emphasizes superior craftsmanship and premium materials. Each product undergoes stringent quality checks to ensure it meets the highest standards of safety and durability. From classic solid styles to vibrant printed options, their products blend functionality with modern design, giving pet owners a chance to express their dog’s personality while ensuring maximum comfort.</p>
