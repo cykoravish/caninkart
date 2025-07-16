@@ -63,7 +63,7 @@ const Navbar = () => {
           {navLinks.map((item) => (
             <li key={item}>
               <NavLink
-                to={item === "home" ? "/" : `/${item}`}
+                to={item === "home" ? "/" : `/${item.toLowerCase().replace(/\s+/g, "-")}`}
 
                 className={({ isActive }) =>
                   `group relative inline-block transition-colors ${
@@ -151,7 +151,7 @@ const Navbar = () => {
         {navLinks.map((item) => (
           <div key={item}>
             <NavLink
-              to={`/${item}`}
+              to={`/${item.toLowerCase().replace(/\s+/g, "-")}`}
               onClick={() => setIsOpen(false)}
               className={({ isActive }) =>
                 `group relative inline-block transition-colors ${

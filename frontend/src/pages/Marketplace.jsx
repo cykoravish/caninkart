@@ -180,13 +180,13 @@ const LocationHierarchy = () => {
       </style>
 
       {/* Banner */}
-      <div className="max-w-screen-2xl mx-auto">
+      <div className="max-w-screen-2xl  mx-auto">
         <img src={img12} alt="India banner" className="w-full h-auto mx-auto" />
       </div>
 
 
       {/* product category  */}
-      <div className="grid grid-cols-1 md:grid-cols-2  lg:grid-cols-3 justify-center mx-16 items-center mt-10 mb-10">
+      <div className="grid grid-cols-2   md:grid-cols-3 justify-centermx-3 sm:mx-10 lg:mx-16 items-center mt-10 mb-10">
       {category.map((item) =>(
          <ul    
          key={item.id}
@@ -209,7 +209,7 @@ const LocationHierarchy = () => {
                            
                               <div className="  w-full items-center text-center px-1 py-0.5 space-y-3 ">
                                 
-                                <p className="px-1 w-full flex justify-center items-center font-medium text-lg">
+                                <p className="px-1 w-full flex justify-center items-center font-medium text-sm ms:text-base lg:text-lg">
                                   {item.name}
                                 </p>
                               </div>
@@ -274,27 +274,27 @@ const LocationHierarchy = () => {
               </div>
 
               {expandedCountryId && (
-                <div className="mt-6 p-4  max-w-[1400px]  lg:ml-23 ml-2 ">
+                <div className="mt-6 p-4  max-w-[1400px] flex justify-center    ">
                   {locations.find((c) => c._id === expandedCountryId)?.states.length === 0 ? (
                     <p className="text-gray-600 italic">No states found.</p>
                   ) : (
-                    <ul className="flex flex-wrap justify-start gap-10">
+                    <ul className="flex w-full h-full flex-wrap justify-center mx-auto gap-4 md:gap-6 lg:gap-10">
                       {locations
                         .find((c) => c._id === expandedCountryId)
                         ?.states.map((state) => (
                           <li
                             key={state._id}
-                            className="w-[16.67%] min-w-[150px] flex-shrink-0"
+                            className="w-[13%]  h-[100px]  sm:w-[16%] lg:w-[18%] min-w-[120px] sm:min-w-[150px] lg:min-w-[170px] "
                           >
                             <button
                               onClick={() => handleStateClick(state)}
-                              className="w-full flex items-center justify-between py-4 px-3 bg-[#F0F2F3] rounded-md shadow-sm hover:bg-gray-200 transition-colors"
+                              className="w-full flex items-center justify-between py-4 px-1 bg-[#F0F2F3] h-full rounded-md shadow-sm hover:bg-gray-200 transition-colors"
                             >
                               <div className="items-center space-y-3">
                                 <div className="bg-white rounded w-8 h-8 p-1.5">
                                   <FaMapMarkerAlt className="text-black w-5 h-5" />
                                 </div>
-                                <span className="font-medium text-lg">
+                                <span className="line-clamp-2 font-medium text-sm lg:text-base ">
                                   {state.name}
                                 </span>
                               </div>

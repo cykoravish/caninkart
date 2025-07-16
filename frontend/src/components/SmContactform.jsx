@@ -98,7 +98,7 @@ const SmContactform = () => {
             className="bg-[#F0F2F3] p-6 rounded shadow-md w-full max-w-sm text-left space-y-3 text-black"
             onSubmit={handleSubmit}
           >
-            <h3 className="font-bold text-lg">Enquiry Form </h3>
+            <h3 className="font-bold text-lg text-center">Enquiry Form </h3>
 
             {successMsg && <p className="text-green-600">{successMsg}</p>}
             {errorMsg && <p className="text-red-600">{errorMsg}</p>}

@@ -105,11 +105,11 @@ const DistrictsPage = () => {
               <p className="text-gray-600 text-lg">No districts found.</p>
             </div>
           ) : (
-            <ul className="flex flex-row flex-wrap md:gap-10 gap-5 max-w-[1400px] mx-auto mt-4 p-4 ml-8 lg:ml-23">
+            <ul className="flex flex-row flex-wrap md:gap-10 gap-5 max-w-[1400px]   justify-center mx-auto mt-4 p-4">
               {districts.map((district) => (
                 <li
                   key={state._id}
-                  className="w-[16.67%] min-w-[150px] flex-shrink-0"
+                  className="w-[12%]  h-[100px]  sm:w-[16%] lg:w-[18%] min-w-[100px] sm:min-w-[150px] lg:min-w-[170px]"
                 >
                   <button
                     onClick={() =>
@@ -123,7 +123,7 @@ const DistrictsPage = () => {
                       <div className="bg-white rounded w-8 h-8 p-1.5">
                         <FaMapMarkerAlt className="text-black w-5 h-5" />
                       </div>
-                      <span className="font-medium text-lg">
+                      <span className="line-clamp-2 font-medium text-sm lg:text-base">
                         {district.name}
                       </span>
                     </div>

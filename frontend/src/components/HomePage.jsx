@@ -177,14 +177,14 @@ const HomePage = () => {
                 <img
                   src={category.image}
                   alt={category.category}
-                  className="md:h-40 mx-auto object-contain"
+                  className="h-25 md:h-30 lg:h-40 mx-auto object-contain"
                 />
               </div>
               <p
-                className={`my-2   ${
+                className={`my-2 text-base lg:text-lg    ${
                   selectedCategory === category.category
-                    ? "text-orange-500 font-bold "
-                    : ""
+                    ? "text-orange-500 text-base lg:text-lg font-bold "
+                    : "text-base lg:text-lg"
                 }`}
               >
                 {category.category}
@@ -226,7 +226,7 @@ const HomePage = () => {
                 key={product.id}
                 className="bg-white  px-2 py-4 sm:py-6 md:py-4 shadow-md rounded cursor-pointer ring-orange-300 transition duration-200"
               >
-                <div className="w-full h-40 flex items-center justify-center bg-white">
+                <div className="w-full h-25 md:h-30 lg:h-40 flex items-center justify-center bg-white">
                   <img
                     src={product.image || img11}
                     onError={(e) => {
@@ -237,7 +237,7 @@ const HomePage = () => {
                     className="max-h-full object-contain"
                   />
                 </div>
-                <p className="mt-2 text-lg  font-medium">{product.name}</p>
+                <p className="mt-2 text-base lg:text-lg  font-medium">{product.name}</p>
               </div>
             );
           })}
@@ -256,7 +256,7 @@ const HomePage = () => {
         <section className="py-5 px-4  flex flex-col md:flex-row items-center justify-center md:gap-15">
           <img src={pupy} alt="About Dog" className="h-70 " />
           <div>
-            <p className="text-lg max-w-xl">
+            <p className="text-base lg:text-lg max-w-xl">
               Welcome to Caninkart, your trusted partner in premium-quality pet products designed to enrich the lives of pets and the people who love them.
              <p>  Founded with a passion for pets and a commitment to excellence, Caninkart has grown into a leading manufacturer of innovative, durable, and stylish pet accessories. From collars, leashes, and harnesses to cozy beds, protective jackets, and everyday essentials, every product we create reflects our dedication to safety, comfort, and superior craftsmanship.</p>
             </p>
