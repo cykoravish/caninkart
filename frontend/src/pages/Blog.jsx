@@ -51,7 +51,7 @@ const Blog = () => {
 ) : (
   <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 space-y-1">
     {blogs.map((blog) => (
-      <Link to={`/blog/${slugify(blog.title)}`} state={blog} key={blog._id}>
+      <Link to={`/blog/${slugify(blog._id)}`} state={blog} key={blog._id}>
         <div className="bg-[#f5f4ef] rounded-xl shadow-lg overflow-hidden border relative border-gray-200">
           <span className="inline-block border border-black bg-gray-50 px-4 py-1 rounded-full text-sm absolute top-2 left-2 font-medium">
             {blog.tags[0] || "Blog"}
