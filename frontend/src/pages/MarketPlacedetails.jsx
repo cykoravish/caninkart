@@ -55,14 +55,14 @@ function MarketPlacedetails() {
         </p>
 
         <p className="text-base md:text- leading-relaxed mb-5">
-        From dog harness and dog hut to custom-designed dog collars and other products tailored for specific needs, Caninkart blends functionality with style to ensure every product serves its purpose effectively. Our dedicated team of animal lovers and experts continually works to develop new solutions that reflect our passion for pets and our understanding of their needs.
+      
         </p>
 
 
         {/* Image & Description */}
         <div className="flex flex-col md:flex-row items-center md:space-x-8">
           <div className="md:w-1/2 mb-6 md:mb-0">
-            <p className="text-base md:text- leading-relaxed">
+            <p className="text-base md:text- leading-relaxed">  From dog harness and dog hut to custom-designed dog collars and other products tailored for specific needs, Caninkart blends functionality with style to ensure every product serves its purpose effectively. Our dedicated team of animal lovers and experts continually works to develop new solutions that reflect our passion for pets and our understanding of their needs.
             Rooted in ethical practices and driven by a love for animals, Caninkart continues to remain a <span className='font-bold'> trusted Manufacturer of Dog Products in { districtId? districtId:district?.name}</span>, making us a trusted choice for pet parents who seek nothing but the best for their furry companions. We specialize in offering a wide range of high-quality pet products, including dog collars, dog harnesses, dog beds, leashes, dog coats, dog mats, as well as cat collars, cat beds, cat huts, and pet homes.
 
               </p>
