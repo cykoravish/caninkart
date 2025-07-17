@@ -59,7 +59,7 @@ const Footer = () => {
             <h4 className="font-semibold mb-2 text-black text-lg">Legal</h4>
             <ul className="space-y-1 ">
               {[" ", "Privacy Policy"].map((text, idx) => (
-                <li key={idx} className="hover:text-orange-500 text-base"  onClick={() => handlePolicyClick(text)}>
+                <li key={idx} className="hover:text-orange-500 text-base cursor-pointer"  onClick={() => handlePolicyClick(text)}>
                   {text}
                 </li>
               ))}

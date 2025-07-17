@@ -63,7 +63,14 @@ const Navbar = () => {
           {navLinks.map((item) => (
             <li key={item}>
               <NavLink
-                to={item === "home" ? "/" : `/${item.toLowerCase().replace(/\s+/g, "-")}`}
+              to={
+          item === "home"
+            ? "/"
+            : item === "blog"
+            ? "/blogs/news"
+            : `/${item.toLowerCase().replace(/\s+/g, "-")}`
+        }
+
 
                 className={({ isActive }) =>
                   `group relative inline-block transition-colors ${
