@@ -9,17 +9,22 @@ const BlogDetails = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const data = location.state;
-  const { id } = useParams();
-  console.log("Blog ID:", id);
+  const { title } = useParams();
+  // console.log("Blog ID:", id);
   const [blog, setBlog] = useState(null);
   console.log("Blog Details Data:", blog);
   
  useEffect(() => {
   const fetchdata = async () => {
     try {
+      const slugify = (str) =>
+    str
+      .toLowerCase()
+      .replace(/[^a-z0-9]+/g, "-") // replace non-alphanumeric with hyphen
+      .replace(/(^-|-$)/g, ""); // remove leading/trailing hyphens
       const res = await axios.get(`${import.meta.env.VITE_BACKEND}/api/blogs`);
       console.log("Fetched Blogs:", res.data);
-      const blogData = res.data.find((blog) => blog._id === id);
+      const blogData = res.data.find((blog) => slugify(blog.title) === title);
       setBlog(blogData);
       console.log("Fetched Blog Data:", blogData);
     } catch (e) {
@@ -27,10 +32,10 @@ const BlogDetails = () => {
     }
   };
 
-  if (id) {
+ 
     fetchdata();
-  }
-}, [id]);
+  
+}, [title]);
 
   if (!blog) {
     return (

@@ -50,7 +50,7 @@ const router = createBrowserRouter([
       { path:"/category-products", element:<CategoryProducts />},
       { path: 'product/:id', element: <ProductDetail /> },
       { path: 'blog', element: <Blog /> },
-      { path: 'blog/:id', element: <BlogDetails /> },
+      { path: 'blog/news/:title', element: <BlogDetails /> },
       { path: 'market-place', element: <Marketplace /> },
       { path: "districts/:stateId" , element: <DistrictsPage /> },
       { path: '/:state/:districtId', element: <MarketPlacedetails /> },
