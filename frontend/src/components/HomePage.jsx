@@ -260,7 +260,7 @@ const HomePage = () => {
               Welcome to Caninkart, your trusted partner in premium-quality pet products designed to enrich the lives of pets and the people who love them.
              <p>  Founded with a passion for pets and a commitment to excellence, Caninkart has grown into a leading manufacturer of innovative, durable, and stylish pet accessories. From collars, leashes, and harnesses to cozy beds, protective jackets, and everyday essentials, every product we create reflects our dedication to safety, comfort, and superior craftsmanship.</p>
             </p>
-            <Link to="/about us">
+            <Link to={`/about-us`.toLowerCase().replace(/\s+/g, "-")}>
               <button className="mt-4 bg-red-500 text-white text-xs px-4 py-2 rounded">
                 READ MORE
               </button>
