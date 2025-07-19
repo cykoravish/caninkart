@@ -17,7 +17,7 @@ import img11 from "../assets/pngwing.png";
 import { Link, useNavigate } from "react-router-dom";
 import img1 from "../assets/Printed_Collar/4.png";
 import img2 from "../assets/Fur Lounger/24.png";
-import img3 from "../assets/cat_hut_caterpillar/4.png"
+import img3 from "../assets/Hut-Snail/2.png";
 import img4 from "../assets/Jackets/4.png";
 import img5 from "../assets/dwt1.png";
 import { useRef } from "react";
@@ -177,7 +177,7 @@ const HomePage = () => {
                 <img
                   src={category.image}
                   alt={category.category}
-                  className="h-25 md:h-30 lg:h-40 mx-auto object-contain"
+                  className="h-25 md:h-30 rounded-full lg:h-40 mx-auto object-contain"
                 />
               </div>
               <p
