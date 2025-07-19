@@ -177,7 +177,7 @@ const HomePage = () => {
                 <img
                   src={category.image}
                   alt={category.category}
-                  className="h-25 md:h-30 rounded-full lg:h-40 mx-auto object-contain"
+                  className="h-25 md:h-30  lg:h-40 mx-auto object-contain"
                 />
               </div>
               <p
