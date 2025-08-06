@@ -37,6 +37,7 @@ import Socialicon from './components/Socialicon.jsx';
 import Cookie from './pages/Cookie.jsx';
 import Cookiepolicy from './pages/Cookiepage.jsx';
 import PrivatePolicy from './pages/PrivatePolicy.jsx';
+import NotFound from './components/NotFound.jsx';
 const router = createBrowserRouter([
   {
     path: '/',
@@ -53,7 +54,7 @@ const router = createBrowserRouter([
       { path: 'blogs/news/:title', element: <BlogDetails /> },
       { path: 'market-place', element: <Marketplace /> },
       { path: "districts/:stateId" , element: <DistrictsPage /> },
-      { path: '/:state/:districtId', element: <MarketPlacedetails /> },
+      { path: 'state/:state/:districtId', element: <MarketPlacedetails /> },
       { path: 'contact', element: <Contact /> },
       { path : "exp" , element : <Category/>},
       { path: "marketplace/:name", element: <Productcategorypage/> },
@@ -61,6 +62,10 @@ const router = createBrowserRouter([
       { path: "cookie", element: <Cookiepolicy/> },
       { path: "privatePolicy", element: <PrivatePolicy/> },
       // { path: 'CountryPage', element: <CountryPage /> }
+      {
+        path: '*',
+        element: <NotFound />
+      }
     ],
   },
  

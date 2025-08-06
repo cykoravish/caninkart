@@ -86,7 +86,7 @@ const DistrictsPage = () => {
             </div>
           </section>
       <div className="text-center cursor-pointer"  onClick={() =>
-                      navigate(`/${stateId}/${stateName.toLowerCase().replace(/\s+/g, "-")}`, {
+                      navigate(`/state/${stateId}/${stateName.toLowerCase().replace(/\s+/g, "-")}`, {
                         state: { districtData: stateName },
                       })
                     }>
@@ -113,7 +113,7 @@ const DistrictsPage = () => {
                 >
                   <button
                     onClick={() =>
-                      navigate(`/${stateId}/${district.name.toLowerCase().replace(/\s+/g, "-")}`, {
+                      navigate(`/state/${stateId}/${district.name.toLowerCase().replace(/\s+/g, "-")}`, {
                         state: { districtData: district },
                       })
                     }
