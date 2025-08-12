@@ -435,7 +435,7 @@ const Productss = [
   },
   {
     id: 25,
-    image: Images24.hutCaterpillar4,
+    image: Images24.hutCaterpillar,
     thumbnails: [
       Images24.hutCaterpillar,
       Images24.hutCaterpillar2,

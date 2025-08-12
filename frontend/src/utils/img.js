@@ -177,7 +177,7 @@ import bandana12 from "../assets/Products_Bandana/12.png"
 import bandana13 from "../assets/Products_Bandana/13.png"
 import bandana14 from "../assets/Products_Bandana/14.png"
 
-import hutCaterpillar from "../assets/cat_hut_caterpillar/1.png"
+import hutCaterpillar from "../assets/cat_hut_caterpillar/1.1.png"
 import hutCaterpillar2 from "../assets/cat_hut_caterpillar/2.png"
 import hutCaterpillar3 from "../assets/cat_hut_caterpillar/3.png"
 import hutCaterpillar4 from "../assets/cat_hut_caterpillar/4.png"
