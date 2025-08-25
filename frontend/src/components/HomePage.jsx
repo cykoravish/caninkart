@@ -11,7 +11,7 @@ import "swiper/css/pagination";
 import "swiper/css/navigation";
 import banner2 from "../assets/banner2.png";
 import hero2 from "../assets/caninkart_hero.webp";
-import hero3 from "../assets/herobanner2.png";
+import hero3 from "../assets/herobanner.webp";
 import pupy from "../assets/pupy.png";
 import img11 from "../assets/pngwing.png";
 import { Link, useNavigate } from "react-router-dom";
@@ -152,7 +152,7 @@ const HomePage = () => {
         <img
           src={hero3 || "/placeholder.svg"}
           alt="Product"
-          className="w-full h-auto object-contain md:hidden py-4"
+          className="w-full h-auto object-contain  md:hidden py-4"
         />
       </div>
 
