@@ -1,4 +1,7 @@
 User-agent: *
 Disallow: /dashboard    
+Disallow: /about
+Disallow: pages/contact-us
+Disallow: collections/accessories
 
 Sitemap: https://caninkart.com/sitemap.xml
