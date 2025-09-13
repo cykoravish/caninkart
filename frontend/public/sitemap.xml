@@ -8,7 +8,8 @@
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
-   <url>
+
+  <url>
     <loc>https://www.caninkart.com/product</loc>
     <lastmod>2025-07-09</lastmod>
     <changefreq>monthly</changefreq>
@@ -21,8 +22,6 @@
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
-  
- 
 
   <url>
     <loc>https://caninkart.com/dogbreed</loc>
@@ -43,6 +42,70 @@
     <lastmod>2025-07-09</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.4</priority>
+  </url>
+
+  <!-- ✅ Newly added marketplace & location URLs -->
+  <url>
+    <loc>https://caninkart.com/market-place</loc>
+    <lastmod>2025-07-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://caninkart.com/marketplace/manufacturers</loc>
+    <lastmod>2025-07-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://caninkart.com/marketplace/suppliers</loc>
+    <lastmod>2025-07-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://caninkart.com/marketplace/private-labelling</loc>
+    <lastmod>2025-07-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://caninkart.com/marketplace/dealers</loc>
+    <lastmod>2025-07-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://caninkart.com/marketplace/exporters</loc>
+    <lastmod>2025-07-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://caninkart.com/marketplace/distributors</loc>
+    <lastmod>2025-07-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://caninkart.com/districts/uttarakhand</loc>
+    <lastmod>2025-07-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://caninkart.com/state/uttarakhand/dehradun</loc>
+    <lastmod>2025-07-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
   </url>
 
 </urlset>
