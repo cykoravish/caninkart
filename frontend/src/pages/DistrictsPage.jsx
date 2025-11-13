@@ -12,6 +12,7 @@ const DistrictsPage = () => {
   const { state } = useLocation();
   const navigate = useNavigate();
   const [districts, setDistricts] = useState([]);
+  console.log("state data in district page", districts);
   const [loading, setLoading] = useState(true);
   const [stateName, setStateName] = useState(state?.stateData?.name || "");
 
@@ -24,7 +25,7 @@ const DistrictsPage = () => {
             `${import.meta.env.VITE_BACKEND}/states/${stateId}`
           );
           setStateName(res.data.name);
-          console.log("State Name:", res.data.name);
+          console.log("State Name:", res.data);
           setDistricts(res.data.districts || []);
         } else {
           setDistricts(state.stateData.districts || []);

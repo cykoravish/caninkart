@@ -5,16 +5,16 @@ import { Link } from "react-router-dom";
 import logo from "../assets/logo.jpg";
 import { useNavigate } from "react-router-dom";
 const Footer = () => {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const handlePolicyClick = (text) => {
-  if (text === "Terms & Conditions") {
-    // Navigate or scroll to Terms page
-    navigate("/terms"); // if using React Router
-  } else if (text === "Privacy Policy") {
-    navigate("/privatePolicy");
-    window.scrollTo(0,0)
-  }
-};
+    if (text === "Terms & Conditions") {
+      // Navigate or scroll to Terms page
+      navigate("/terms"); // if using React Router
+    } else if (text === "Privacy Policy") {
+      navigate("/privatePolicy");
+      window.scrollTo(0, 0);
+    }
+  };
   return (
     <footer className="px-4 sm:px-6 pt-10 text-sm bg-white max-w-screen-2xl mx-auto">
       <div className="grid gap-x-10 gap-y-5 md:grid-cols-2 lg:grid-cols-3 border-b px-10 py-5 max-w-[1500px] mx-auto ">
@@ -42,6 +42,8 @@ const Footer = () => {
                       to={`/${
                         text === "Home"
                           ? ""
+                          : text === "Market Place"
+                          ? "marketplace"
                           : text.toLowerCase().replace(/\s+/g, "-")
                       }`}
                       className="hover:text-orange-500 text-base"
@@ -59,7 +61,11 @@ const Footer = () => {
             <h4 className="font-semibold mb-2 text-black text-lg">Legal</h4>
             <ul className="space-y-1 ">
               {[" ", "Privacy Policy"].map((text, idx) => (
-                <li key={idx} className="hover:text-orange-500 text-base cursor-pointer"  onClick={() => handlePolicyClick(text)}>
+                <li
+                  key={idx}
+                  className="hover:text-orange-500 text-base cursor-pointer"
+                  onClick={() => handlePolicyClick(text)}
+                >
                   {text}
                 </li>
               ))}

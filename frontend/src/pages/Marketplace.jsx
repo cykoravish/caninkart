@@ -9,6 +9,7 @@ import "swiper/css/bundle";
 
 const LocationHierarchy = () => {
   const [locations, setLocations] = useState([]);
+
   const [loading, setLoading] = useState(true);
   const [expandedCountryId, setExpandedCountryId] = useState(null);
   const navigate = useNavigate();
@@ -19,8 +20,9 @@ const LocationHierarchy = () => {
         const res = await axios.get(
           `${import.meta.env.VITE_BACKEND}/countries/hierarchy`
         );
+    
         const countriesWithFlags = await Promise.all(
-          res.data.map(async (country) => {
+          res?.data?.map(async (country) => {
             try {
               const flagRes = await axios.get(
                 `https://restcountries.com/v3.1/name/${country.name}?fullText=true`
