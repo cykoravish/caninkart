@@ -38,7 +38,7 @@ const DistrictsPage = () => {
     };
     fetchDistricts();
     window.scrollTo(0, 0);
-  }, [stateId, state]);
+  }, []);
 
   if (loading) {
     return (
@@ -83,7 +83,7 @@ const DistrictsPage = () => {
           
             {/* Text Overlay */}
             <div className="text-white font-[Poppins] text-center text-[28px] md:text-5xl font-semibold leading-relaxed max-w-4xl">
-              Districts in {stateName}
+              Districts in {stateId}
             </div>
           </section>
       <div className="text-center cursor-pointer"  onClick={() =>
@@ -93,7 +93,7 @@ const DistrictsPage = () => {
                     }>
   <div className="px-6 py-3 rounded-lg mt-2.5 bg-zinc-200 inline-block items-center my-auto text-2xl transition-transform duration-300 hover:scale-105 hover:shadow-lg">
     <div className="flex items-center justify-center gap-2">
-      <span className="my-auto text-zinc-800">{stateName}</span>
+      <span className="my-auto text-zinc-800">{stateId}</span>
       <span><TfiArrowTopRight className="text-zinc-400" /></span>
     </div>
   </div>
