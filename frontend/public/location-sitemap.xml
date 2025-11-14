@@ -1,249 +1,215 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset
-  xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-  xmlns:geo="http://www.google.com/geo/schemas/sitemap/1.0">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
   <url>
     <loc>https://caninkart.com/districts/andaman-and-nicobar-islands</loc>
-    <geo:geo><geo:format>kml</geo:format></geo:geo>
     <lastmod>2025-11-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://caninkart.com/districts/andhra-pradesh</loc>
-    <geo:geo><geo:format>kml</geo:format></geo:geo>
     <lastmod>2025-11-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://caninkart.com/districts/arunachal-pradesh</loc>
-    <geo:geo><geo:format>kml</geo:format></geo:geo>
     <lastmod>2025-11-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://caninkart.com/districts/bihar</loc>
-    <geo:geo><geo:format>kml</geo:format></geo:geo>
     <lastmod>2025-11-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://caninkart.com/districts/chandigarh</loc>
-    <geo:geo><geo:format>kml</geo:format></geo:geo>
     <lastmod>2025-11-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://caninkart.com/districts/chhattisgarh</loc>
-    <geo:geo><geo:format>kml</geo:format></geo:geo>
     <lastmod>2025-11-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://caninkart.com/districts/dadra-and-nagar-haveli</loc>
-    <geo:geo><geo:format>kml</geo:format></geo:geo>
     <lastmod>2025-11-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://caninkart.com/districts/daman-and-diu</loc>
-    <geo:geo><geo:format>kml</geo:format></geo:geo>
     <lastmod>2025-11-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://caninkart.com/districts/delhi</loc>
-    <geo:geo><geo:format>kml</geo:format></geo:geo>
     <lastmod>2025-11-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://caninkart.com/districts/goa</loc>
-    <geo:geo><geo:format>kml</geo:format></geo:geo>
     <lastmod>2025-11-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://caninkart.com/districts/gujarat</loc>
-    <geo:geo><geo:format>kml</geo:format></geo:geo>
     <lastmod>2025-11-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://caninkart.com/districts/haryana</loc>
-    <geo:geo><geo:format>kml</geo:format></geo:geo>
     <lastmod>2025-11-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://caninkart.com/districts/himachal-pradesh</loc>
-    <geo:geo><geo:format>kml</geo:format></geo:geo>
     <lastmod>2025-11-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://caninkart.com/districts/jammu-and-kashmir</loc>
-    <geo:geo><geo:format>kml</geo:format></geo:geo>
     <lastmod>2025-11-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://caninkart.com/districts/jharkhand</loc>
-    <geo:geo><geo:format>kml</geo:format></geo:geo>
     <lastmod>2025-11-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://caninkart.com/districts/kerala</loc>
-    <geo:geo><geo:format>kml</geo:format></geo:geo>
     <lastmod>2025-11-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://caninkart.com/districts/lakshadweep</loc>
-    <geo:geo><geo:format>kml</geo:format></geo:geo>
     <lastmod>2025-11-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://caninkart.com/districts/madhya-pradesh</loc>
-    <geo:geo><geo:format>kml</geo:format></geo:geo>
     <lastmod>2025-11-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://caninkart.com/districts/karnataka</loc>
-    <geo:geo><geo:format>kml</geo:format></geo:geo>
     <lastmod>2025-11-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://caninkart.com/districts/maharashtra</loc>
-    <geo:geo><geo:format>kml</geo:format></geo:geo>
     <lastmod>2025-11-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://caninkart.com/districts/manipur</loc>
-    <geo:geo><geo:format>kml</geo:format></geo:geo>
     <lastmod>2025-11-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://caninkart.com/districts/meghalaya</loc>
-    <geo:geo><geo:format>kml</geo:format></geo:geo>
     <lastmod>2025-11-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://caninkart.com/districts/mizoram</loc>
-    <geo:geo><geo:format>kml</geo:format></geo:geo>
     <lastmod>2025-11-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://caninkart.com/districts/nagaland</loc>
-    <geo:geo><geo:format>kml</geo:format></geo:geo>
     <lastmod>2025-11-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://caninkart.com/districts/odisha</loc>
-    <geo:geo><geo:format>kml</geo:format></geo:geo>
     <lastmod>2025-11-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://caninkart.com/districts/puducherry</loc>
-    <geo:geo><geo:format>kml</geo:format></geo:geo>
+   
     <lastmod>2025-11-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://caninkart.com/districts/punjab</loc>
-    <geo:geo><geo:format>kml</geo:format></geo:geo>
+   
     <lastmod>2025-11-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://caninkart.com/districts/rajasthan</loc>
-    <geo:geo><geo:format>kml</geo:format></geo:geo>
     <lastmod>2025-11-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://caninkart.com/districts/sikkim</loc>
-    <geo:geo><geo:format>kml</geo:format></geo:geo>
     <lastmod>2025-11-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://caninkart.com/districts/tamil-nadu</loc>
-    <geo:geo><geo:format>kml</geo:format></geo:geo>
     <lastmod>2025-11-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://caninkart.com/districts/telangana</loc>
-    <geo:geo><geo:format>kml</geo:format></geo:geo>
     <lastmod>2025-11-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://caninkart.com/districts/tripura</loc>
-    <geo:geo><geo:format>kml</geo:format></geo:geo>
-    <lastmod>2025-11-13</lastmod>
+   <lastmod>2025-11-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://caninkart.com/districts/uttar-pradesh</loc>
-    <geo:geo><geo:format>kml</geo:format></geo:geo>
     <lastmod>2025-11-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://caninkart.com/districts/uttarakhand</loc>
-    <geo:geo><geo:format>kml</geo:format></geo:geo>
-    <lastmod>2025-11-13</lastmod>
+   <lastmod>2025-11-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://caninkart.com/districts/west-bengal</loc>
-    <geo:geo><geo:format>kml</geo:format></geo:geo>
+    
     <lastmod>2025-11-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
